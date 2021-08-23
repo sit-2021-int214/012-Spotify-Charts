@@ -12,7 +12,7 @@ Datasets from: [Sportify Charts](https://www.kaggle.com/dhruvildave/spotify-char
 ### Team: xxxxxxx
 1. นาย ชินวัฒน์ แก้วหนองสังข์     StudentID: 63130500022
 2. ชื่อ นามสกุล     StudentID: 63130500030
-3. ชื่อ นามสกุล     StudentID: 63130500032
+3. นาย ณัฐชนน อัศวชิน     StudentID: 63130500032
 4. นาย ตะวัน หมวดหมื่นไวย์   StudentID: 63130500041
 5. นาย ธราดล แสนมาตร     StudentID: 63130500054
 
