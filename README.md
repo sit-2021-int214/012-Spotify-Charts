@@ -9,7 +9,7 @@ Datasets from: [Sportify Charts](https://www.kaggle.com/dhruvildave/spotify-char
 
 ## About Us
 งานนี้เป็นส่วนของวิชา INT214 Statistics for Information technology <br/> ภาคเรียนที่ 1 ปีการศึกษา 2564 คณะเทคโนโลยีสารสนเทศ มหาวิทยาลัยเทคโนโลยีพระจอมเกล้าธนบุรี
-### Team: xxxxxxx
+### Team: Stat bros
 1. นาย ชินวัฒน์ แก้วหนองสังข์     StudentID: 63130500022
 2. ชื่อ นามสกุล     StudentID: 63130500030
 3. นาย ณัฐชนน อัศวชิน     StudentID: 63130500032
