@@ -23,6 +23,7 @@ E.g. กลุ่มของเราเลือกชุดข้อมูล
 ## Resources
 
 ### Important Files in Repository
+- [top10s-spotify-original.csv](./top10s-spotify-original.csv): Original Dataset
 
 ### References
 
