@@ -23,6 +23,13 @@ Data were stracted from: http://organizeyourmusic.playlistmachinery.com/
 14. `spch` Speechiness - The higher the value the more spoken word the song contains
 15. `pop` Popularity - The higher the value the more popular the song is
 
+### Questions
+1.ศิลปินแต่ละคนเคยมีเพลงติด Chart กี่เพลง?
+2.ในช่วงปี 2010 - 2019 ศิลปินคนใดที่มีเพลงติดท็อปมากที่สุดและมีกี่เพลง?
+3.เพลงใดที่ติดท็อปติดต่อกันหลายปีที่สุด?
+4.10 อันดับเพลงที่มี BPM ไม่เกิน 100 BPM ที่เป็นที่นิยมในปี 2019?
+5.ในปี 2016 มีเพลงอะไร ศิลปินอะไร ประเภทไหนที่ติด top บ้าง?
+
 ### Steps
 
 1. Define a question
