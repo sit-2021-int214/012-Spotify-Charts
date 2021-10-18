@@ -1,9 +1,8 @@
 # 012-Top-Spotify-Songs
-Datasets from: [Top Spotify songs from 2010-2019 - BY YEAR](https://www.kaggle.com/leonardopena/top-spotify-songs-from-20102019-by-year)
+Original Dataset from: [Top Spotify songs from 2010-2019 - BY YEAR](https://www.kaggle.com/leonardopena/top-spotify-songs-from-20102019-by-year)
 
-## Overview
-The top Spotify songs from 2010-2019 This dataset has several variables about the songs and is based on Billboard. 
-Data were stracted from: http://organizeyourmusic.playlistmachinery.com/
+## About's Top Spotify Songs Dataset
+The Top Spotify Songs from 2010-2019 were stracted from http://organizeyourmusic.playlistmachinery.com/. This dataset about's the top Spotify songs during 2010-2019 that all of them are based on Billboard, and each song has 1 variable for ID and 14 specific variables that are included and displayed on **Contents** part below. 
 
 
 ### Contents
@@ -23,17 +22,23 @@ Data were stracted from: http://organizeyourmusic.playlistmachinery.com/
 14. `spch` Speechiness - The higher the value the more spoken word the song contains
 15. `pop` Popularity - The higher the value the more popular the song is
 
+## Overview
+เป็นการวิเคราะห์ข้อมูลเชิงสถิติเกี่ยวกับรายการเพลงยอดนิยมบน Spotify ศิลปินเจ้าของเพลง ประเภทของเพลง ลักษณะเสียงของเพลง และอื่นๆ โดยได้นำเข้าชุดข้อมูลดังกล่าวมาจากแหล่งรวมชุดข้อมูลบนอินเทอร์เน็ต (Kaggle) ตามที่ปรากฏในแหล่งอ้างอิง นำมาทำความสะอาดและวิเคราะห์โดยใช้ภาษา R เพื่อหาความสัมพันธ์ระหว่างแต่ละข้อมูล
+
 ### Questions
-1. ศิลปินแต่ละคนเคยมีเพลงติด Chart กี่เพลง?
+1. ศิลปินแต่ละคนเคยมีเพลงติดท็อปกี่เพลง?
 2. ในช่วงปี 2010 - 2019 ศิลปินคนใดที่มีเพลงติดท็อปมากที่สุดและมีกี่เพลง?
 3. เพลงใดที่ติดท็อปติดต่อกันหลายปีที่สุด?
 4. เพลงที่มี BPM ไม่เกิน 100 BPM ที่เป็นที่นิยมในปี 2019?
-5. ในปี 2016 มีเพลงอะไร ศิลปินอะไร ประเภทไหนที่ติด top บ้าง?
+5. ในปี 2016 มีเพลงชื่ออะไร ศิลปินชื่ออะไร เป็นเพลงประเภทไหนที่ติดท็อปบ้าง?
 
 ### Steps
 
 1. Define a question
-2. Observe...
+2. Find and observe data
+3. Explore data from original data
+4. Cleaning and Transformation data
+5. Exploratory Data Analysis
 
 ### Tools
 
@@ -42,6 +47,11 @@ Data were stracted from: http://organizeyourmusic.playlistmachinery.com/
 
 ## Table of Contents
 
+1. Define a question
+2. Data Exploration
+3. Data Cleaning and Data Transformation
+4. Exploratory Data Analysis
+
 ## Resources
 
 ### Important Files in Repository
@@ -49,10 +59,11 @@ Data were stracted from: http://organizeyourmusic.playlistmachinery.com/
 
 ### References
 
-// Link
+
+
 
 ## About Us
-งานนี้เป็นส่วนของวิชา INT214 Statistics for Information technology <br/> ภาคเรียนที่ 1 ปีการศึกษา 2564 คณะเทคโนโลยีสารสนเทศ มหาวิทยาลัยเทคโนโลยีพระจอมเกล้าธนบุรี
+งานนี้เป็นส่วนของวิชา INT214 Statistics for Information technology <br/> ภาคเรียนที่ 1 ปีการศึกษา 2564 คณะเทคโนโลยีสารสนเทศ <br/> มหาวิทยาลัยเทคโนโลยีพระจอมเกล้าธนบุรี
 ### Team: Stat bros
 | No. | Name              | Student ID   |
 |:---:|-------------------|--------------|
