@@ -23,11 +23,10 @@ Install and import libraries
 ```r
 install.packages("tidyverse")
 library(tidyverse)
+install.packages("DescTools") 
 library(DescTools)
-library(dplyr)
+install.packages("magrittr")
 library(magrittr)
-library(readr)
-library(stringr)
 ```
 Load the data
 ```r
