@@ -25,12 +25,14 @@ The Top Spotify Songs from 2010-2019 were stracted from http://organizeyourmusic
 ## Overview
 เป็นการวิเคราะห์ข้อมูลเชิงสถิติเกี่ยวกับรายการเพลงยอดนิยมบน Spotify ศิลปินเจ้าของเพลง ประเภทของเพลง ลักษณะเสียงของเพลง และอื่นๆ โดยได้นำเข้าชุดข้อมูลดังกล่าวมาจากแหล่งรวมชุดข้อมูลบนอินเทอร์เน็ต (Kaggle) ตามที่ปรากฏในแหล่งอ้างอิง นำมาทำความสะอาดและวิเคราะห์โดยใช้ภาษา R เพื่อหาความสัมพันธ์ระหว่างแต่ละข้อมูล
 
+<!--
 ### Questions
 1. ศิลปินแต่ละคนเคยมีเพลงติดท็อปกี่เพลง?
 2. ในช่วงปี 2010 - 2019 ศิลปินคนใดที่มีเพลงติดท็อปมากที่สุดและมีกี่เพลง?
 3. เพลงใดที่ติดท็อปติดต่อกันหลายปีที่สุด?
 4. เพลงที่มี BPM ไม่เกิน 100 BPM ที่เป็นที่นิยมในปี 2019?
 5. ในปี 2016 มีเพลงชื่ออะไร ศิลปินชื่ออะไร เป็นเพลงประเภทไหนที่ติดท็อปบ้าง?
+  -->
 
 ### Steps
 
@@ -47,11 +49,12 @@ The Top Spotify Songs from 2010-2019 were stracted from http://organizeyourmusic
 
 ## Table of Contents
 
-1. Define a question
-2. Data Exploration
-3. Data Cleaning and Data Transformation
-4. Exploratory Data Analysis
-
+- [Exploratory Data Analysis](https://github.com/sit-2021-int214/012-Spotify-Charts/blob/main/01-EDA.md)
+<!--
+1. [Define the questions and Data Exploration]()
+2. [Data Cleaning and Data Transformation]()
+3. [Exploratory Data Analysis]()
+-->
 ## Resources
 
 ### Important Files in Repository
