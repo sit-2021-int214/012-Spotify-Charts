@@ -178,6 +178,7 @@ top10s_spotify %>% filter(year == 2016) %>% select(title,artist,top.genre) %>% v
 
 Result
 ```
+                                                                                                  title                 artist                 top.genre
 1                                                                                             The Hills             The Weeknd canadian contemporary r&b
 2                                                                                         Love Yourself          Justin Bieber              canadian pop
 3                                                                                     Cake By The Ocean                   DNCE                 dance pop
