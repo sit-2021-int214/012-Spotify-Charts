@@ -1,30 +1,36 @@
-# Steps
-1. Define the questions
-2. Find and observe data
-3. Explore data from original data
-4. Cleaning and Transformation data
-5. Exploratory Data Analysis
+# 012-Top-Spotify-Songs
+Original Dataset from: [Top Spotify songs from 2010-2019 - BY YEAR](https://www.kaggle.com/leonardopena/top-spotify-songs-from-20102019-by-year)
 
-# Define the questions
-1. ศิลปินแต่ละคนเคยมีเพลงติด Chart กี่เพลง?
+# Exploratory Data Analysis
+
+## Steps
+1. Define the questions
+2. Explore data from original data
+3. Cleaning and Transformation data
+4. Exploratory Data Analysis
+
+# Step 1 : Define the questions
+1. ศิลปินแต่ละคนเคยมีเพลงติดท็อปกี่เพลง?
 2. ในช่วงปี 2010 - 2019 ศิลปินคนใดที่มีเพลงติดท็อปมากที่สุดและมีกี่เพลง?
 3. ศิลปินคนใดที่มีเพลงติดท็อปติดต่อกันหลายปีที่สุด และติดต่อกันกี่ปี?
 4. เพลงที่มี BPM ไม่เกิน 100 BPM ที่เป็นที่นิยมในปี 2019?
-5. ในปี 2016 มีเพลงอะไร ศิลปินอะไร ประเภทไหนที่ติด top บ้าง?
+5. ในปี 2016 มีเพลงชื่ออะไร ศิลปินชื่ออะไร เป็นเพลงประเภทไหนที่ติดท็อปบ้าง?
 
-# Data Exploration
-## Step 0: Setup
+# Step 2 : Explore data from original data
+
+## Setup : Loading libraries and dataset
 Install and import libraries
 ```r
 install.packages("tidyverse")
 library(tidyverse)
+library(...)
 ```
 Load the data
 ```r
 top10s_spotify <- read_csv("https://raw.githubusercontent.com/sit-2021-int214/012-Spotify-Charts/main/top10s-spotify-original.csv")
 ```
 
-## Step 1: Explore the data
+
 ### Inspect the data
 ```r
 glimpse(top10s_spotify)
@@ -51,21 +57,21 @@ $ pop         <dbl> 83, 82, 80, 79, 78, 77, 77, 77, 76, 73, 73, 73, 73, 73, 72, 
 ```
 
 The dataset has 15 variables.
-1. `ID` คือ ลำดับของข้อมูลตั้งแต่ 1 ถึง 603 มีประเภทเป็น `double`
-2. `Title` Song's title
-3. `Artist` Song's artist
-4. `Top genre` The genre of the track
-5. `Year` Song's year in the Billboard
-6. `bmp` (Beats Per Minute) - The tempo of the song
-7. `nrgy` (Energy) - The energy of a song - the higher the value, the more energtic song
-8. `dnce` (Danceability) - The higher the value, the easier it is to dance to this song
-9. `dB` (Loudness in decibel - The higher the value, the louder the song
-10. `live` Liveness - The higher the value, the more likely the song is a live recording
-11. `val` Valence - The higher the value, the more positive mood for the song
-12. `dur` Length - The duration of the song
-13. `acous`  Acousticness - The higher the value the more acoustic the song is
-14. `spch` Speechiness - The higher the value the more spoken word the song contains
-15. `pop` Popularity - The higher the value the more popular the song is
+1. `ID` คือ ลำดับของข้อมูล มีค่าตั้งแต่ 1 ถึง 603 มีประเภทเป็น `double`
+2. `Title` คือ ชื่อของเพลงที่ติดท็อป มีประเภทเป็น `character`
+3. `Artist` คือ ชื่อศิลปินเจ้าของเพลง มีประเภทเป็น `character`
+4. `Top genre` คือ ประเภทของเพลง มีประเภทเป็น `character`
+5. `Year` คือ ปีที่เพลงติดท็อปบน Spoity
+6. `bmp` คือ ความเร็วของเพลง (มีหน่วยเป็นจังหวะต่อนาที (BPM หรือ Beats Per Minute)) พบค่าตั้งแต่ 0 จนถึง 220 มีประเภทเป็น `double`
+7. `nrgy` คือ พลังงานของเพลง - (มีค่ามากแสดงว่ามีพลังงานมาก) มีค่าตั้งแต่ 0 (น้อย) จนถึง 100 (มาก) มีประเภทเป็น `double`
+8. `dnce` คือ ความเหมาะสมของเพลงกับการเต้น(โดยอิงจากการผสมผสานขององค์ประกอบทางดนตรี) มีค่าตั้งแต่ 0 (น้อย) จนถึง 100 (มาก) (มีค่ามากแสดงว่าเหมาะกับการเต้นมาก) มีประเภทเป็น `double`
+9. `dB` คือ ความดังของเพลง มีหน่วยเป็นเดซิเบล (dB) มีค่าตั้งแต่ -60 (เบา) จนถึง 0 (ดัง) (มีค่ามากแสดงว่ามีความดังมาก) มีประเภทเป็น `double`
+10. `live` คือ ความสดใหม่ของเสียงเพลง - มีค่าตั้งแต่ 0 (น้อย) จนถึง 75 (มาก) (มีค่ามากแสดงว่ามีโอกาสเป็นการบันทึกสด (live recording) มาก) มีประเภทเป็น `double`
+11. `val` คือ อารมณ์ของเพลง - มีค่าตั้งแต่ 0 (ด้านลบ) จนถึง 100 (ด้านบวก) (มีค่ามากแสดงว่าให้อารมณ์ด้านบวกมาก) มีประเภทเป็น `double`
+12. `dur` คือ ความยาวเพลง - ระยะเวลาของเสียงเพลงดังต่อเนื่องกัน พบค่าตั้งแต่ 120 จนถึง 440 มีประเภทเป็น `double`
+13. `acous` คือ ความเป็นอะคูสติก - มีค่าตั้งแต่ 0 (น้อย) จนถึง 100 (มาก) (มีค่ามากแสดงว่ามีโอกาสเป็นอะคูสติก (acoustic) มาก) มีประเภทเป็น `double`
+14. `spch` คือ ปริมาณเสียงคำพูดที่มีปรากฏ - มีค่าตั้งแต่ 0 (น้อย) จนถึง 50 (มาก) (มีค่ามากแสดงว่ามีโอกาสเป็นการบันทึกเสียงพูดโดยเฉพาะมาก เช่น ทอล์กโชว์ หนังสือเสียง เป็นต้น) มีประเภทเป็น `double`
+15. `pop` คือ ความนิยมของเพลง - มีค่าตั้งแต่ 0 (น้อย) จนถึง 100 (มาก) (มีค่ามากแสดงว่าเป็นที่นิยมมาก) มีประเภทเป็น `double`
 
 ### Check the summary statistics for each variable
 ```r
@@ -98,9 +104,17 @@ Result
      title            artist  top genre   year   bpm  nrgy  dnce    dB  live   val   dur acous  spch   pop
 443 Million Years Ago Adele  british soul  2016     0     0     0   -60     0     0   227     0     0     0
 ```
-## Step X:
 
-### 1. ศิลปินแต่ละคนเคยมีเพลงติด Chart กี่เพลง?
+## Step 3 : Cleaning and Transformation data
+```r
+
+
+```
+
+
+## Step 4 : Exploratory Data Analysis
+
+### 1. ศิลปินแต่ละคนเคยมีเพลงติดท็อปกี่เพลง?
 ```r
 
 ```
@@ -110,7 +124,7 @@ Result
 ```
 
 Summary\
-กหฟกฟ
+สรุป
 
 ### 2. ในช่วงปี 2010 - 2019 ศิลปินคนใดที่มีเพลงติดท็อปมากที่สุดและมีกี่เพลง?
 ```r
@@ -123,7 +137,7 @@ Result
 ```
 
 Summary\
-กหฟกฟ
+สรุป
 
 ### 3. ศิลปินคนใดที่มีเพลงติดท็อปติดต่อกันหลายปีที่สุด และติดต่อกันกี่ปี?
 ```r
@@ -169,9 +183,9 @@ Result
 ```
 
 Summary\
-กหฟกฟ
+สรุป
 
-### 5. ในปี 2016 มีเพลงอะไร ศิลปินอะไร ประเภทไหนที่ติด top บ้าง?
+### 5. ในปี 2016 มีเพลงชื่ออะไร ศิลปินชื่ออะไร เป็นเพลงประเภทไหนที่ติดท็อปบ้าง?
 ```r
 
 ```
@@ -182,4 +196,4 @@ Result
 ```
 
 Summary\
-กหฟกฟ
+สรุป
