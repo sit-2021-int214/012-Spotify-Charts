@@ -88,8 +88,16 @@ Result
  3rd Qu.: -4.000   3rd Qu.:24.00   3rd Qu.:69.00   3rd Qu.:239.5   3rd Qu.:17.00   3rd Qu.: 9.000   3rd Qu.:76.00  
  Max.   : -2.000   Max.   :74.00   Max.   :98.00   Max.   :424.0   Max.   :99.00   Max.   :48.000   Max.   :99.00
 ```
-พบว่ามีข้อมูลที่มีคุณลักษณะของเพลงเป็น 0 ทุกค่า xxxxx
-
+พบว่ามีข้อมูลที่มีคุณลักษณะของเพลงเป็น 0 ทุกค่า
+check ข้อมูลที่มี bpm เป็น 0 เพราะไม่ควรมีเพลงที่มีค่า bmp เป็น 0
+```r
+top10s_spotify %>% filter(top10s_spotify$bpm == 0)
+```
+Result
+```
+     title            artist  top genre   year   bpm  nrgy  dnce    dB  live   val   dur acous  spch   pop
+443 Million Years Ago Adele  british soul  2016     0     0     0   -60     0     0   227     0     0     0
+```
 ## Step X:
 
 ### 1. ศิลปินแต่ละคนเคยมีเพลงติด Chart กี่เพลง?
