@@ -113,18 +113,26 @@ Result
 ### 1. เปลี่ยนชื่อ columns เพื่อความง่ายในการอ่าน
 ```r
 top10s_spotify <- top10s_spotify %>% 
-    rename(Genre=`top genre`, 
-    Energy = nrgy, 
-    Danceability = dnce,
-    `Loudness dB`= dB, 
-    Liveness = live,
-    Valence = val, 
-    Duration = dur, 
-    Acousticness = acous, 
-    Speechiness = spch, 
-    Popularity = pop)
+  rename(Title = title,
+         Artist = artist,
+         Genre = `top genre`, 
+         Year = year,
+         BPM = bpm,
+         Energy = nrgy, 
+         Danceability = dnce,
+         `Loudness dB` = dB, 
+         Liveness = live,
+         Valence = val, 
+         Duration = dur, 
+         Acousticness = acous, 
+         Speechiness = spch, 
+         Popularity = pop)
 ```
-Top genre -> Genre\
+title -> Title\
+artist -> Artist\
+top genre -> Genre\
+year -> Year\
+bpm -> BPM\
 nrgy -> Energy\
 dnce -> Danceability\
 dB -> Loudness dB\

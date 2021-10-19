@@ -7,4 +7,18 @@ library(tidyverse)
 glimpse(top10s_spotify)
 
 # Change column name
-top10s_spotify <- top10s_spotify %>% rename(Genre=`top genre`, Energy = nrgy, Danceability = dnce,`Loudness dB`= dB, Liveness = live,Valence = val, Duration = dur,  Acousticness = acous, Speechiness = spch, Popularity = pop)
+top10s_spotify <- top10s_spotify %>% 
+  rename(Title = title,
+         Artist = artist,
+         Genre = `top genre`, 
+         Year = year,
+         BPM = bpm,
+         Energy = nrgy, 
+         Danceability = dnce,
+         `Loudness dB` = dB, 
+         Liveness = live,
+         Valence = val, 
+         Duration = dur, 
+         Acousticness = acous, 
+         Speechiness = spch, 
+         Popularity = pop)
