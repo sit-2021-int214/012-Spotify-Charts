@@ -173,13 +173,92 @@ Summary\
 
 ### 5. ในปี 2016 มีเพลงอะไร ศิลปินอะไร ประเภทไหนที่ติด top บ้าง?
 ```r
-
+top10s_spotify %>% filter(year == 2016) %>% select(title,artist,top.genre) %>% view()
 ```
 
 Result
 ```
-
+1                                                                                             The Hills             The Weeknd canadian contemporary r&b
+2                                                                                         Love Yourself          Justin Bieber              canadian pop
+3                                                                                     Cake By The Ocean                   DNCE                 dance pop
+4                                                                                     Don't Let Me Down       The Chainsmokers                electropop
+5                                                                                   In the Name of Love          Martin Garrix                  big room
+6                                                                                              Into You          Ariana Grande                 dance pop
+7                                                                             This Is What You Came For          Calvin Harris                 dance pop
+8                                                                                       Million Reasons              Lady Gaga                 dance pop
+9                                                                                             Needed Me                Rihanna             barbadian pop
+10                                                                                              7 Years           Lukas Graham                danish pop
+11                         CAN'T STOP THE FEELING! (Original Song from DreamWorks Animation's "TROLLS")      Justin Timberlake                 dance pop
+12                                                                 Work from Home (feat. Ty Dolla $ign)          Fifth Harmony                 dance pop
+13                                                                              Scars To Your Beautiful           Alessia Cara canadian contemporary r&b
+14                                                          Like I'm Gonna Lose You (feat. John Legend)         Meghan Trainor                 dance pop
+15                                                                                                 Work                Rihanna             barbadian pop
+16                                                                                             Stitches           Shawn Mendes              canadian pop
+17                                                                                       Me, Myself & I                 G-Eazy                   hip hop
+18                                                                  I Took A Pill In Ibiza - Seeb Remix            Mike Posner                 dance pop
+19                                                                                      Dangerous Woman          Ariana Grande                 dance pop
+20                                                                                             Starving       Hailee Steinfeld                 dance pop
+21                                                                                   Shout Out to My Ex             Little Mix                 dance pop
+22                                                                                        Electric Love                   BุRNS                electropop
+23                                                                                            Confident            Demi Lovato                 dance pop
+24                                                                                             Too Good                  Drake          canadian hip hop
+25                                                                                                Roses       The Chainsmokers                electropop
+26                                                                 Cold Water (feat. Justin Bieber & Mุ)            Major Lazer                 dance pop
+27                                                                                               Me Too         Meghan Trainor                 dance pop
+28                                                          Light It Up (feat. Nyla & Fuse ODG) [Remix]            Major Lazer                 dance pop
+29                                                                                      Ain't Your Mama         Jennifer Lopez                 dance pop
+30                                                                                                Close             Nick Jonas                 dance pop
+31                                                                                           Toothbrush                   DNCE                 dance pop
+32                                                                                          All We Know       The Chainsmokers                electropop
+33                                                                                           Final Song                      Mุ                 dance pop
+34                                                                                              Company          Justin Bieber              canadian pop
+35                                                                                      Hands To Myself           Selena Gomez                 dance pop
+36                                                                                            All I Ask                  Adele              british soul
+37                  Just Like Fire (From the Original Motion Picture "Alice Through The Looking Glass")                   P!nk                 dance pop
+38                                                                                                   NO         Meghan Trainor                 dance pop
+39                                                                                Kill Em With Kindness           Selena Gomez                 dance pop
+40                                                                                            Cool Girl                Tove Lo                 dance pop
+41                                                                                Runnin' (Lose It All)            Naughty Boy            tropical house
+42                                                                                                 Here           Alessia Cara canadian contemporary r&b
+43                                                                                     Perfect Illusion              Lady Gaga                 dance pop
+44                                                                                           PILLOWTALK                   ZAYN                 dance pop
+45                                                                                     Out Of The Woods           Taylor Swift                       pop
+46                                                                                                 Rise             Katy Perry                 dance pop
+47                                                                                        Wherever I Go            OneRepublic                 dance pop
+48                                                                                             Body Say            Demi Lovato                 dance pop
+49                                                                                      Don't Be A Fool           Shawn Mendes              canadian pop
+50                                                                                         LIKE I WOULD                   ZAYN                 dance pop
+51                                                                                        Cheap Thrills                    Sia          australian dance
+52                                                                                            I Got You             Bebe Rexha                 dance pop
+53                                                                                     Run Away With Me       Carly Rae Jepsen              canadian pop
+54                                                                                   Cruel (feat. ZAYN)              Snakehips                 dance pop
+55                                                                     Send My Love (To Your New Lover)                  Adele              british soul
+56                                                                                WTF (Where They From)          Missy Elliott                 dance pop
+57                                                                                               Desire          Years & Years                 dance pop
+58                                                                                   When We Were Young                  Adele              british soul
+59                                                                      I Know What You Did Last Summer           Shawn Mendes              canadian pop
+60 Wish That You Were Here - From “Miss Peregrine’s Home for Peculiar Children” Original Motion Picture Florence + The Machine                   art pop
+61                                                                                                Hurts             Emeli Sand้                 dance pop
+62                                                                                               Change     Christina Aguilera                 dance pop
+63                                                                            Make Me... (feat. G-Eazy)         Britney Spears                 dance pop
+64                                                                                 Keeping Your Head Up                  Birdy                neo mellow
+65                                                                                          True Colors                   Zedd                complextro
+66                                                                                     Make Me Like You           Gwen Stefani                 dance pop
+67                                                                                   Champagne Problems             Nick Jonas                 dance pop
+68                                                                                                Blown                   DNCE                 dance pop
+69                                                                                                Start            John Legend                neo mellow
+70                                                                                            Pep Rally          Missy Elliott                 dance pop
+71                                                                                               Higher       Carly Rae Jepsen              canadian pop
+72                                                                                           Invitation         Britney Spears                 dance pop
+73                                                                   One Call Away (feat. Tyga) - Remix           Charlie Puth                 dance pop
+74                                                                        Beautiful Birds (feat. Birdy)              Passenger                  folk-pop
+75                                                                                          Little Lies            Hilary Duff                 dance pop
+76                                                                              Do You Wanna Come Over?         Britney Spears                 dance pop
+77                                                                                            BURNITUP!          Janet Jackson                 dance pop
+78                                                                                        Picky - Remix           Joey Montana                     latin
+79                                                                                     Behind Your Back          Nelly Furtado            canadian latin
+80                                                                                    Million Years Ago                  Adele              british soul
 ```
 
 Summary\
-กหฟกฟ
+ในปี 2016 มีเพลงทั้งหมด 80 เพลง ที่ติดท็อป
