@@ -110,16 +110,16 @@ Result
 ```r
 top10s_spotify <- top10s_spotify %>% rename(Genre=`top genre`, Energy = nrgy, Danceability = dnce,`Loudness dB`= dB, Liveness = live,Valence = val, Duration = dur,  Acousticness = acous, Speechiness = spch, Popularity = pop)
 ```
-Top genre -> Genre
-nrgy -> Energy
-dnce -> Danceability
-dB -> Loudness dB
-live -> Liveness
-val -> Valence
-dur -> Duration
-acous -> Acousticness
-spch -> Speechiness
-pop -> Popularity
+Top genre -> Genre\
+nrgy -> Energy\
+dnce -> Danceability\
+dB -> Loudness dB\
+live -> Liveness\
+val -> Valence\
+dur -> Duration\
+acous -> Acousticness\
+spch -> Speechiness\
+pop -> Popularity\
 
 ## Step 4 : Exploratory Data Analysis
 
