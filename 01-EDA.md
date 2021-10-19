@@ -143,6 +143,16 @@ acous -> Acousticness\
 spch -> Speechiness\
 pop -> Popularity
 
+### 2. เปลี่ยนค่าตัวแปรเพลง Million Years Ago ของ Adele
+- เปลี่ยน 0 เป็น NA
+- เปลี่ยน -60 dB เป็น NA
+```r
+top10s_spotify %>%
+  filter(BPM == 0) %>%
+  na_if(0) %>%
+  mutate(`Loudness dB` = NA)
+```
+
 ## Step 4 : Exploratory Data Analysis
 
 ### 1. ศิลปินแต่ละคนเคยมีเพลงติดท็อปกี่เพลง?

@@ -22,3 +22,9 @@ top10s_spotify <- top10s_spotify %>%
          Acousticness = acous, 
          Speechiness = spch, 
          Popularity = pop)
+
+# Replace 0s and -60 dB with NAs 
+top10s_spotify %>%
+  filter(BPM == 0) %>%
+  na_if(0) %>%
+  mutate(`Loudness dB` = NA)
