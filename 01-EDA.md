@@ -67,7 +67,7 @@ The dataset has 15 variables.
 14. `spch` Speechiness - The higher the value the more spoken word the song contains
 15. `pop` Popularity - The higher the value the more popular the song is
 
-### Check the summary statistics
+### Check the summary statistics for each variable
 ```r
 summary(top10s_spotify)
 ```
@@ -88,3 +88,69 @@ Result
  3rd Qu.: -4.000   3rd Qu.:24.00   3rd Qu.:69.00   3rd Qu.:239.5   3rd Qu.:17.00   3rd Qu.: 9.000   3rd Qu.:76.00  
  Max.   : -2.000   Max.   :74.00   Max.   :98.00   Max.   :424.0   Max.   :99.00   Max.   :48.000   Max.   :99.00
 ```
+พบว่ามีข้อมูลที่มีคุณลักษณะของเพลงเป็น 0 ทุกค่า xxxxx
+
+## Step X:
+
+### 1. ศิลปินแต่ละคนเคยมีเพลงติด Chart กี่เพลง?
+```r
+
+```
+Result
+```
+
+```
+
+Summary\
+กหฟกฟ
+
+### 2. ในช่วงปี 2010 - 2019 ศิลปินคนใดที่มีเพลงติดท็อปมากที่สุดและมีกี่เพลง?
+```r
+
+```
+
+Result
+```
+
+```
+
+Summary\
+กหฟกฟ
+
+### 3. ศิลปินคนใดที่มีเพลงติดท็อปติดต่อกันหลายปีที่สุด และติดต่อกันกี่ปี?
+```r
+
+```
+
+Result
+```
+
+```
+Summary\
+กหฟกฟ
+
+### 4. เพลงที่มี BPM ไม่เกิน 100 BPM ที่เป็นที่นิยมในปี 2019?
+```r
+
+```
+
+Result
+```
+
+```
+
+Summary\
+กหฟกฟ
+
+### 5. ในปี 2016 มีเพลงอะไร ศิลปินอะไร ประเภทไหนที่ติด top บ้าง?
+```r
+
+```
+
+Result
+```
+
+```
+
+Summary\
+กหฟกฟ
