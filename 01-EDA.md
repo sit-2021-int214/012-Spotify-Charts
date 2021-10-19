@@ -119,15 +119,36 @@ Summary\
 
 ### 3. ศิลปินคนใดที่มีเพลงติดท็อปติดต่อกันหลายปีที่สุด และติดต่อกันกี่ปี?
 ```r
-
+top10s_spotify %>%
+  group_by(artist) %>%
+  distinct(year) %>%
+  arrange(year) %>%
+  mutate(n = c(1, diff(year)) %>% rle() %>% with(max(lengths[values == 1]))) %>%
+  arrange(desc(n), artist) %>%
+  distinct(n)
 ```
 
 Result
 ```
-
+# A tibble: 184 x 2
+# Groups:   artist [184]
+   artist             n
+   <chr>          <int>
+ 1 Katy Perry         8
+ 2 Calvin Harris      7
+ 3 Ariana Grande      6
+ 4 David Guetta       6
+ 5 Jennifer Lopez     6
+ 6 Maroon 5           6
+ 7 Pitbull            5
+ 8 Shawn Mendes       5
+ 9 Zedd               5
+10 Demi Lovato        4
+# ... with 174 more rows
 ```
+
 Summary\
-กหฟกฟ
+Katy Perry เป็นศิลปินที่มีเพลงติดท็อปติดต่อกันหลายปีที่สุด และติดต่อกันเป็นเวลา 8 ปี รองลงมาคือ Calvin Harris และ Ariana Grande ด้วยระยะเวลา 7 ปี และ 6 ปี ตามลำดับ
 
 ### 4. เพลงที่มี BPM ไม่เกิน 100 BPM ที่เป็นที่นิยมในปี 2019?
 ```r
