@@ -1,5 +1,5 @@
 # 012-Top-Spotify-Songs
-Original Dataset from: [Top Spotify songs from 2010-2019 - BY YEAR](https://www.kaggle.com/leonardopena/top-spotify-songs-from-20102019-by-year)
+Dataset from: [Top Spotify songs from 2010-2019](https://github.com/sit-2021-int214/012-Spotify-Charts/blob/main/top10s-spotify-original.csv)
 
 ## About's Top Spotify Songs Dataset
 The Top Spotify Songs from 2010-2019 were stracted from http://organizeyourmusic.playlistmachinery.com/. This dataset about's the top Spotify songs during 2010-2019 that all of them are based on Billboard, and each song has 1 variable for ID and 14 specific variables that are included and displayed on **Contents** part below. 
@@ -36,11 +36,10 @@ The Top Spotify Songs from 2010-2019 were stracted from http://organizeyourmusic
 
 ### Steps
 
-1. Define a question
-2. Find and observe data
-3. Explore data from original data
-4. Cleaning and Transformation data
-5. Exploratory Data Analysis
+1. Define the questions
+2. Explore data from original data
+3. Cleaning and Transformation data
+4. Exploratory Data Analysis
 
 ### Tools
 
@@ -61,8 +60,9 @@ The Top Spotify Songs from 2010-2019 were stracted from http://organizeyourmusic
 - [code-eda.R](./code-eda.R): Exploratory Data Analysis
 - [top10s-spotify-original.csv](./top10s-spotify-original.csv): Original Dataset
 
-### References
 
+### References
+- [Top Spotify songs from 2010-2019 - BY YEAR](https://www.kaggle.com/leonardopena/top-spotify-songs-from-20102019-by-year)
 
 
 

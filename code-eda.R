@@ -1,7 +1,15 @@
 # Install and import libraries
-install.packages("tidyverse")
+#install.packages("tidyverse")
 library(tidyverse)
+#install.packages("DescTools") 
+library(DescTools)
+#install.packages("magrittr")
+library(magrittr)
+#install.packages("assertive")
+library(assertive)
 
+# Load the data
+top10s_spotify <- read_csv("https://raw.githubusercontent.com/sit-2021-int214/012-Spotify-Charts/main/top10s-spotify-original.csv")
 
 # Inspect the data
 glimpse(top10s_spotify)
