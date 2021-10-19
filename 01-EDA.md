@@ -119,7 +119,7 @@ val -> Valence\
 dur -> Duration\
 acous -> Acousticness\
 spch -> Speechiness\
-pop -> Popularity\
+pop -> Popularity
 
 ## Step 4 : Exploratory Data Analysis
 
