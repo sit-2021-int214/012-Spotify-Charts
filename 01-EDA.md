@@ -108,7 +108,17 @@ Result
 ## Step 3 : Cleaning and Transformation data
 ### 1. เปลี่ยนชื่อ columns เพื่อความง่ายในการอ่าน
 ```r
-top10s_spotify <- top10s_spotify %>% rename(Genre=`top genre`, Energy = nrgy, Danceability = dnce,`Loudness dB`= dB, Liveness = live,Valence = val, Duration = dur,  Acousticness = acous, Speechiness = spch, Popularity = pop)
+top10s_spotify <- top10s_spotify %>% 
+    rename(Genre=`top genre`, 
+    Energy = nrgy, 
+    Danceability = dnce,
+    `Loudness dB`= dB, 
+    Liveness = live,
+    Valence = val, 
+    Duration = dur, 
+    Acousticness = acous, 
+    Speechiness = spch, 
+    Popularity = pop)
 ```
 Top genre -> Genre\
 nrgy -> Energy\
