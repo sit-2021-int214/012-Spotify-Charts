@@ -79,6 +79,17 @@ The dataset has 15 variables.
 14. `spch` คือ ปริมาณเสียงคำพูดที่มีปรากฏ พบค่าตั้งแต่ 0 (น้อย) จนถึง 50 (มาก) (มีค่ามากแสดงว่ามีโอกาสเป็นการบันทึกเสียงพูดโดยเฉพาะมาก เช่น ทอล์กโชว์ หนังสือเสียง เป็นต้น) มีประเภทเป็น `double`
 15. `pop` คือ ความนิยมของเพลง พบค่าตั้งแต่ 0 (น้อย) จนถึง 100 (มาก) (มีค่ามากแสดงว่าเป็นที่นิยมมาก) มีประเภทเป็น `double`
 
+
+## Check if their is any duplicate data
+```r
+top10s_spotify %>% duplicated() %>% sum() > 0
+```
+Result
+```
+[1] FALSE
+```
+ไม่พบข้อมูลซ้ำ
+
 ## Check the summary statistics for each variable
 ```r
 summary(top10s_spotify)

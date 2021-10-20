@@ -14,6 +14,15 @@ top10s_spotify <- read_csv("https://raw.githubusercontent.com/sit-2021-int214/01
 # Inspect the data
 glimpse(top10s_spotify)
 
+# Check if their is any duplicate data
+top10s_spotify %>% duplicated() %>% sum() > 0
+
+# Check the summary statistics for each variable
+summary(top10s_spotify)
+
+# Select only the data have their BPM equals to 0
+top10s_spotify %>% filter(top10s_spotify$bpm == 0)
+
 # Change column name
 top10s_spotify <- top10s_spotify %>% 
   rename(Title = title,
