@@ -14,14 +14,7 @@ top10s_spotify <- read_csv("https://raw.githubusercontent.com/sit-2021-int214/01
 # Inspect the data
 glimpse(top10s_spotify)
 
-# Check if their is any duplicate data
-top10s_spotify %>% duplicated() %>% sum() > 0
 
-# Check the summary statistics for each variable
-summary(top10s_spotify)
-
-# Select only the data have their BPM equals to 0
-top10s_spotify %>% filter(top10s_spotify$bpm == 0)
 
 # Change column name
 top10s_spotify <- top10s_spotify %>% 
@@ -40,8 +33,30 @@ top10s_spotify <- top10s_spotify %>%
          Speechiness = spch, 
          Popularity = pop)
 
-# Replace 0s and -60 dB with NAs 
-top10s_spotify %>%
-  filter(BPM == 0) %>%
-  na_if(0) %>%
-  mutate(`Loudness dB` = NA)
+# Check if their is any duplicate data
+top10s_spotify %>% duplicated() %>% sum() > 0
+
+# Check the summary statistics for each variable
+summary(top10s_spotify)
+
+# Show only the data that have their BPM or Popularity equals to 0
+top10s_spotify %>% filter(bpm == 0 | pop == 0)
+
+# Replace 0-Popularity values with NAs
+top10s_spotify <-
+  top10s_spotify %>%
+  mutate(Popularity = ifelse(Popularity == 0, NA, Popularity))
+
+# Replace Adele's Million Years Ago features with NAs
+top10s_spotify <-
+  top10s_spotify %>%
+  mutate(
+    across(everything(), ~ ifelse(Title == 'Million Years Ago' & . == 0, NA, .)))
+
+# Check neighbors' loudness
+top10s_spotify %>% select(Title, `Loudness dB`) %>% arrange(`Loudness dB`)
+
+# Replace -60 dB with NAs 
+top10s_spotify <-
+  top10s_spotify %>%
+  mutate(`Loudness dB` = ifelse(`Loudness dB` == -60, NA, `Loudness dB`))
