@@ -88,7 +88,8 @@ top10s_spotify %>%
   arrange(desc(ConsecutiveYear), Artist) %>%
   distinct(ConsecutiveYear)
 
-# 4.
+# 4. เพลงที่มี BPM ไม่เกิน 100 BPM ที่เป็นที่นิยมในปี 2019?
+top10s_spotify %>% filter(Year == 2019)%>% filter (BPM <= 100) %>% select(Title)
 
 # 5.
 

@@ -327,24 +327,26 @@ Katy Perry เป็นศิลปินที่มีเพลงติดท
 
 ### 4. เพลงที่มี BPM ไม่เกิน 100 BPM ที่เป็นที่นิยมในปี 2019?
 ```r
-top10s_spotify %>% filter(year == 2019)%>% filter (bpm <= 100) %>% select(title)
+top10s_spotify %>% filter(Year == 2019)%>% filter (BPM <= 100) %>% select(Title)
 ```
 
 Result
 ```
-                                                  title
-1                                              Memories
-2  South of the Border (feat. Camila Cabello & Cardi B)
-3                                               Happier
-4            Good as Hell (feat. Ariana Grande) - Remix
-5                                            Only Human
-6                       Beautiful People (feat. Khalid)
-7                                      Don't Call Me Up
-8                                              Takeaway
-9                             No Guidance (feat. Drake)
-10      Taki Taki (feat. Selena Gomez, Ozuna & Cardi B)
-11                                    Con Calma - Remix
-12        Cross Me (feat. Chance the Rapper & PnB Rock)
+# A tibble: 12 x 1
+   Title                                               
+   <chr>                                               
+ 1 Memories                                            
+ 2 South of the Border (feat. Camila Cabello & Cardi B)
+ 3 Happier                                             
+ 4 Good as Hell (feat. Ariana Grande) - Remix          
+ 5 Only Human                                          
+ 6 Beautiful People (feat. Khalid)                     
+ 7 Don't Call Me Up                                    
+ 8 Takeaway                                            
+ 9 No Guidance (feat. Drake)                           
+10 Taki Taki (feat. Selena Gomez, Ozuna & Cardi B)     
+11 Con Calma - Remix                                   
+12 Cross Me (feat. Chance the Rapper & PnB Rock)
 ```
 
 Summary\
