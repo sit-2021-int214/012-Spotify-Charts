@@ -60,3 +60,8 @@ top10s_spotify %>% select(Title, `Loudness dB`) %>% arrange(`Loudness dB`)
 top10s_spotify <-
   top10s_spotify %>%
   mutate(`Loudness dB` = ifelse(`Loudness dB` == -60, NA, `Loudness dB`))
+
+# Convert genre to factor
+top10s_spotify <-
+  top10s_spotify %>%
+  mutate(Genre = as.factor(Genre))

@@ -221,6 +221,14 @@ top10s_spotify <-
   mutate(`Loudness dB` = ifelse(`Loudness dB` == -60, NA, `Loudness dB`))
 ```
 
+## Convert genre to factor
+แนวเพลงเป็นค่าแบบ categorical เราจึงควรแปลงเป็นค่า factor
+```r
+top10s_spotify <-
+  top10s_spotify %>%
+  mutate(Genre = as.factor(Genre))
+```
+
 
 ## Step 4 : Exploratory Data Analysis
 
