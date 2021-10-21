@@ -142,14 +142,14 @@ summary(top10s_spotify)
 
 Result
 ```
-      ...1          title              artist           top genre              year           bpm             nrgy           dnce      
+      ...1          Title              Artist             Genre                Year           BPM            Energy      Danceability  
  Min.   :  1.0   Length:603         Length:603         Length:603         Min.   :2010   Min.   :  0.0   Min.   : 0.0   Min.   : 0.00  
  1st Qu.:151.5   Class :character   Class :character   Class :character   1st Qu.:2013   1st Qu.:100.0   1st Qu.:61.0   1st Qu.:57.00  
  Median :302.0   Mode  :character   Mode  :character   Mode  :character   Median :2015   Median :120.0   Median :74.0   Median :66.00  
  Mean   :302.0                                                            Mean   :2015   Mean   :118.5   Mean   :70.5   Mean   :64.38  
  3rd Qu.:452.5                                                            3rd Qu.:2017   3rd Qu.:129.0   3rd Qu.:82.0   3rd Qu.:73.00  
  Max.   :603.0                                                            Max.   :2019   Max.   :206.0   Max.   :98.0   Max.   :97.00  
-       dB               live            val             dur            acous            spch             pop       
+  Loudness dB         Liveness        Valence         Duration      Acousticness    Speechiness       Popularity   
  Min.   :-60.000   Min.   : 0.00   Min.   : 0.00   Min.   :134.0   Min.   : 0.00   Min.   : 0.000   Min.   : 0.00  
  1st Qu.: -6.000   1st Qu.: 9.00   1st Qu.:35.00   1st Qu.:202.0   1st Qu.: 2.00   1st Qu.: 4.000   1st Qu.:60.00  
  Median : -5.000   Median :12.00   Median :52.00   Median :221.0   Median : 6.00   Median : 5.000   Median :69.00  
@@ -170,19 +170,19 @@ Result
 ### 4. Check for songs with missing data
 
 ```r
-top10s_spotify %>% filter(bpm == 0 | pop == 0)
+top10s_spotify %>% filter(BPM == 0 | Popularity == 0)
 ```
 
 Result
 ```
 # A tibble: 5 x 15
-   ...1 title                   artist            `top genre`   year   bpm  nrgy  dnce    dB  live   val   dur acous  spch   pop
-  <dbl> <chr>                   <chr>             <chr>        <dbl> <dbl> <dbl> <dbl> <dbl> <dbl> <dbl> <dbl> <dbl> <dbl> <dbl>
-1    51 Hello                   Martin Solveig    big room      2010   128    98    67    -3    10    45   191     1     3     0
-2   139 Blow Me (One Last Kiss) P!nk              dance pop     2012   114    92    60    -3    25    75   256     0     4     0
-3   268 Not a Bad Thing         Justin Timberlake dance pop     2014    86    73    59    -6    38    46   266    27     6     0
-4   363 L.A.LOVE (la la)        Fergie            dance pop     2015   202    39    48    -8    26    27   193     2     9     0
-5   443 Million Years Ago       Adele             british soul  2016     0     0     0   -60     0     0   227     0     0     0
+   ...1 Title    Artist   Genre   Year   BPM Energy Danceability `Loudness dB` Liveness Valence Duration Acousticness Speechiness Popularity
+  <dbl> <chr>    <chr>    <chr>  <dbl> <dbl>  <dbl>        <dbl>         <dbl>    <dbl>   <dbl>    <dbl>        <dbl>       <dbl>      <dbl>
+1    51 Hello    Martin ~ big r~  2010   128     98           67            -3       10      45      191            1           3          0
+2   139 Blow Me~ P!nk     dance~  2012   114     92           60            -3       25      75      256            0           4          0
+3   268 Not a B~ Justin ~ dance~  2014    86     73           59            -6       38      46      266           27           6          0
+4   363 L.A.LOV~ Fergie   dance~  2015   202     39           48            -8       26      27      193            2           9          0
+5   443 Million~ Adele    briti~  2016     0      0            0           -60        0       0      227            0           0          0
 ```
 
 

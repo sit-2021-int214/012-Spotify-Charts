@@ -40,7 +40,7 @@ top10s_spotify %>% duplicated() %>% sum() > 0
 summary(top10s_spotify)
 
 # Show only the data that have their BPM or Popularity equals to 0
-top10s_spotify %>% filter(bpm == 0 | pop == 0)
+top10s_spotify %>% filter(BPM == 0 | Popularity == 0)
 
 # Replace 0-Popularity values with NAs
 top10s_spotify <-
