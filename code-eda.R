@@ -108,3 +108,6 @@ top10s_spotify %>%
   arrange(desc(ValenceVariation))
 
 # 8.
+cor(top10s_spotify$Year, top10s_spotify$Duration)
+
+
