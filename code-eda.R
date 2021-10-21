@@ -91,7 +91,8 @@ top10s_spotify %>%
 # 4. เพลงที่มี BPM ไม่เกิน 100 BPM ที่เป็นที่นิยมในปี 2019?
 top10s_spotify %>% filter(Year == 2019)%>% filter (BPM <= 100) %>% select(Title)
 
-# 5.
+# 5. ในปี 2016 มีเพลงชื่ออะไร ศิลปินชื่ออะไร เป็นเพลงประเภทไหนที่ติดท็อปบ้าง?
+top10s_spotify %>% filter(Year == 2016) %>% select(Title, Artist, Genre) %>% print(n = Inf)
 
 # 6.
 
