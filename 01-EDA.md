@@ -446,3 +446,35 @@ Result
 
 Summary\
 ในปี 2016 มีเพลงทั้งหมด 80 เพลงที่ติดท็อป
+
+
+### 6. แนวเพลงที่ได้รับความนิยมมากที่สุดในแต่ละปี มีอะไรบ้าง
+```r
+top10s_spotify %>%
+  group_by(Year, Genre) %>%
+  summarise(Count = n()) %>%
+  arrange(Year, desc(Count)) %>%
+  slice(1)
+```
+
+Result
+```
+# A tibble: 10 x 3
+# Groups:   Year [10]
+    Year Genre     Count
+   <dbl> <fct>     <int>
+ 1  2010 dance pop    31
+ 2  2011 dance pop    38
+ 3  2012 dance pop    15
+ 4  2013 dance pop    42
+ 5  2014 dance pop    27
+ 6  2015 dance pop    52
+ 7  2016 dance pop    46
+ 8  2017 dance pop    31
+ 9  2018 dance pop    38
+10  2019 pop           9
+```
+
+Summary
+- ปี 2010 ถึง 2018 - **Dance pop** เป็นแนวเพลงที่ได้รับความนิยมมากที่สุด
+- ปี 2010 - **Pop** เป็นแนวเพลงที่ได้รับความนิยมมากที่สุด

@@ -94,7 +94,12 @@ top10s_spotify %>% filter(Year == 2019)%>% filter (BPM <= 100) %>% select(Title)
 # 5. ในปี 2016 มีเพลงชื่ออะไร ศิลปินชื่ออะไร เป็นเพลงประเภทไหนที่ติดท็อปบ้าง?
 top10s_spotify %>% filter(Year == 2016) %>% select(Title, Artist, Genre) %>% print(n = Inf)
 
-# 6.
+# 6. แนวเพลงที่ได้รับความนิยมมากที่สุดในแต่ละปี มีอะไรบ้าง
+top10s_spotify %>%
+  group_by(Year, Genre) %>%
+  summarise(Count = n()) %>%
+  arrange(Year, desc(Count)) %>%
+  slice(1)
 
 # 7.
 
