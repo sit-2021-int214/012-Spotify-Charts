@@ -101,6 +101,10 @@ top10s_spotify %>%
   arrange(Year, desc(Count)) %>%
   slice(1)
 
-# 7.
+# 7. ปีใดที่มีความหลากหลายของอารมณ์เพลงมากที่สุด
+top10s_spotify %>%
+  group_by(Year) %>%
+  summarise(ValenceVariation = sd(Valence, na.rm = T)) %>%
+  arrange(desc(ValenceVariation))
 
 # 8.
