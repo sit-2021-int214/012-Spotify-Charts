@@ -295,30 +295,30 @@ Summary\
 ### 3. ศิลปินคนใดที่มีเพลงติดท็อปติดต่อกันหลายปีที่สุด และติดต่อกันกี่ปี?
 ```r
 top10s_spotify %>%
-  group_by(artist) %>%
-  distinct(year) %>%
-  arrange(year) %>%
-  mutate(n = c(1, diff(year)) %>% rle() %>% with(max(lengths[values == 1]))) %>%
-  arrange(desc(n), artist) %>%
-  distinct(n)
+  group_by(Artist) %>%
+  distinct(Year) %>%
+  arrange(Year) %>%
+  mutate(ConsecutiveYear = c(1, diff(Year)) %>% rle() %>% with(max(lengths[values == 1]))) %>%
+  arrange(desc(ConsecutiveYear), Artist) %>%
+  distinct(ConsecutiveYear)
 ```
 
 Result
 ```
 # A tibble: 184 x 2
-# Groups:   artist [184]
-   artist             n
-   <chr>          <int>
- 1 Katy Perry         8
- 2 Calvin Harris      7
- 3 Ariana Grande      6
- 4 David Guetta       6
- 5 Jennifer Lopez     6
- 6 Maroon 5           6
- 7 Pitbull            5
- 8 Shawn Mendes       5
- 9 Zedd               5
-10 Demi Lovato        4
+# Groups:   Artist [184]
+   Artist         ConsecutiveYear
+   <chr>                    <int>
+ 1 Katy Perry                   8
+ 2 Calvin Harris                7
+ 3 Ariana Grande                6
+ 4 David Guetta                 6
+ 5 Jennifer Lopez               6
+ 6 Maroon 5                     6
+ 7 Pitbull                      5
+ 8 Shawn Mendes                 5
+ 9 Zedd                         5
+10 Demi Lovato                  4
 # ... with 174 more rows
 ```
 

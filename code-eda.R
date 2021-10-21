@@ -79,7 +79,14 @@ top10s_spotify %>%
   arrange(desc(count_song)) %>%
   head(5)
 
-# 3.
+# 3. ศิลปินคนใดที่มีเพลงติดท็อปติดต่อกันหลายปีที่สุด และติดต่อกันกี่ปี?
+top10s_spotify %>%
+  group_by(Artist) %>%
+  distinct(Year) %>%
+  arrange(Year) %>%
+  mutate(ConsecutiveYear = c(1, diff(Year)) %>% rle() %>% with(max(lengths[values == 1]))) %>%
+  arrange(desc(ConsecutiveYear), Artist) %>%
+  distinct(ConsecutiveYear)
 
 # 4.
 
