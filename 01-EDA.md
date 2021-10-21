@@ -19,6 +19,7 @@ Original Dataset from: [Top Spotify songs from 2010-2019 - BY YEAR](https://www.
 # Step 2 : Explore data from original data
 
 ## Setup : Loading libraries and dataset
+
 Install and import libraries
 ```r
 install.packages("tidyverse")
@@ -29,18 +30,19 @@ install.packages("magrittr")
 library(magrittr)
 install.packages("assertive")
 library(assertive)
-
 ```
+
 Load the data
 ```r
 top10s_spotify <- read_csv("https://raw.githubusercontent.com/sit-2021-int214/012-Spotify-Charts/main/top10s-spotify-original.csv")
-
 ```
 
 ## Inspect the data
+
 ```r
 glimpse(top10s_spotify)
 ```
+
 Result
 ```
 Rows: 603
@@ -81,7 +83,9 @@ The dataset has 15 variables.
 
 
 ## Step 3 : Cleaning and Transformation data
+
 ### 1. Rename columns for readability
+
 ```r
 top10s_spotify <- top10s_spotify %>% 
   rename(Title = title,
@@ -99,6 +103,7 @@ top10s_spotify <- top10s_spotify %>%
          Speechiness = spch, 
          Popularity = pop)
 ```
+
 title -> Title\
 artist -> Artist\
 top genre -> Genre\
@@ -115,21 +120,26 @@ spch -> Speechiness\
 pop -> Popularity
 
 
-## 2. Check if their is any duplicate data
+### 2. Check if their is any duplicate data
+
 ```r
 top10s_spotify %>% duplicated() %>% sum() > 0
 ```
+
 Result
 ```
 [1] FALSE
 ```
+
 ไม่พบข้อมูลซ้ำ
 
 
-## Check the summary statistics for each variable
+### 3. Check the summary statistics for each variable
+
 ```r
 summary(top10s_spotify)
 ```
+
 Result
 ```
       ...1          title              artist           top genre              year           bpm             nrgy           dnce      
@@ -147,6 +157,7 @@ Result
  3rd Qu.: -4.000   3rd Qu.:24.00   3rd Qu.:69.00   3rd Qu.:239.5   3rd Qu.:17.00   3rd Qu.: 9.000   3rd Qu.:76.00  
  Max.   : -2.000   Max.   :74.00   Max.   :98.00   Max.   :424.0   Max.   :99.00   Max.   :48.000   Max.   :99.00
 ```
+
 พบว่ามีคอลัมน์ที่มีค่าต่ำสุดเป็น 0 อยู่หลายคอลัมน์ ส่วนใหญ่เป็นคุณลักษณะของเพลง
 
 แต่คอลัมน์ที่ไม่ควรจะมีค่าเป็น 0 ได้ มีดังนี้
@@ -156,10 +167,12 @@ Result
 และ dB หรือค่าความดัง -60 dB ก็เป็นไปได้ยากเช่นเดียวกัน จึงต้องทำการตรวจสอบว่าค่าดังกล่าวมาจากข้อมูลชุดใดบ้าง
 
 
-## Check for songs with missing data
+### 4. Check for songs with missing data
+
 ```r
 top10s_spotify %>% filter(bpm == 0 | pop == 0)
 ```
+
 Result
 ```
 # A tibble: 5 x 15
@@ -173,7 +186,8 @@ Result
 ```
 
 
-## Replace 0-popularity values with NA
+### 5. Replace 0-popularity values with NA
+
 พบว่ามีเพลงที่ Popularity เป็น 0 อยู่ทั้งหมด 5 เพลง แต่การตัดข้อมูลชุดนี้ออกไปเลยอาจส่งผลต่อการวิเคราะห์ข้อมูลอื่น ๆ เช่น จำนวนเพลงที่ติดท็อปของศิลปิน เป็นต้น เราจึงเลือกที่จะเก็บไว้ และทำการแทนค่า Popularity ด้วย NA
 ```r
 top10s_spotify <-
@@ -189,11 +203,13 @@ top10s_spotify <-
     across(everything(), ~ ifelse(Title == 'Million Years Ago' & . == 0, NA, .)))
 ```
 
-## Check loudness in ascending order
+### 6. Check loudness in ascending order
+
 ตรวจ Loudness dB ของเพลงอื่น ๆ เพื่อดูความเป็นไปได้ของ -60 dB โดยเรียงจากเบาไปดัง
 ```r
 top10s_spotify %>% select(Title, `Loudness dB`) %>% arrange(`Loudness dB`)
 ```
+
 Result
 ```
 # A tibble: 603 x 2
@@ -213,15 +229,19 @@ Result
 ```
 
 
-## Replace -60 dB with NA
+### 7. Replace -60 dB with NA
+
 พบว่าเพลงที่เบาสุดจริง ๆ ควรดังอย่างน้อย -15 dB ขึ้นไป จึงทำการแทนค่า -60 dB ด้วย NA
+
 ```r
 top10s_spotify <-
   top10s_spotify %>%
   mutate(`Loudness dB` = ifelse(`Loudness dB` == -60, NA, `Loudness dB`))
 ```
 
-## Convert genre to factor
+
+### 8. Convert genre to factor
+
 แนวเพลงเป็นค่าแบบ categorical เราจึงควรแปลงเป็นค่า factor
 ```r
 top10s_spotify <-
