@@ -266,15 +266,17 @@ Summary\
 
 ### 2. ในช่วงปี 2010 - 2019 ศิลปินคนใดที่มีเพลงติดท็อปมากที่สุดเป็น 5 อันดับแรก และแต่ละคนนับได้กี่เพลง?
 ```r
-head((topsong10s %>% group_by(artist) %>%
-        summarise(count_song = n()) %>%
-        arrange(desc(count_song))),5)
+top10s_spotify %>%
+  group_by(Artist) %>%
+  summarise(count_song = n()) %>%
+  arrange(desc(count_song)) %>%
+  head(5)
 ```
 
 Result
 ```
 # A tibble: 5 x 2
-  artist        count_song
+  Artist        count_song
   <chr>              <int>
 1 Katy Perry            17
 2 Justin Bieber         16

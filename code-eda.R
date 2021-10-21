@@ -65,3 +65,28 @@ top10s_spotify <-
 top10s_spotify <-
   top10s_spotify %>%
   mutate(Genre = as.factor(Genre))
+
+
+
+# EDA
+
+# 1.
+
+# 2. ในช่วงปี 2010 - 2019 ศิลปินคนใดที่มีเพลงติดท็อปมากที่สุดเป็น 5 อันดับแรก และแต่ละคนนับได้กี่เพลง?
+top10s_spotify %>%
+  group_by(Artist) %>%
+  summarise(count_song = n()) %>%
+  arrange(desc(count_song)) %>%
+  head(5)
+
+# 3.
+
+# 4.
+
+# 5.
+
+# 6.
+
+# 7.
+
+# 8.
