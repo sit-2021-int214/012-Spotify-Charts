@@ -40,7 +40,7 @@ library(assertive)
 ## 2. Import the dataset
 
 ```r
-top10s_spotify <- read_csv("https://raw.githubusercontent.com/sit-2021-int214/012-Spotify-Charts/main/top10s-spotify-original.csv")
+top10s_spotify <- read_csv("https://raw.githubusercontent.com/sit-2021-int214/012-Top-Spotify-Songs/main/top10s-spotify-original.csv")
 ```
 
 
