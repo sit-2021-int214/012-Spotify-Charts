@@ -59,7 +59,7 @@ The Top Spotify Songs from 2010-2019 were stracted from http://organizeyourmusic
 ### Important Files in Repository
 - [code-eda.R](./code-eda.R): Exploratory Data Analysis
 - [top10s-spotify-original.csv](./top10s-spotify-original.csv): Original Dataset
-
+- [top10s-spotify-cleaned.csv](https://raw.githubusercontent.com/sit-2021-int214/012-Top-Spotify-Songs/main/top10s-spotify-cleaned.csv)
 
 ### References
 - [Top Spotify songs from 2010-2019 - BY YEAR](https://www.kaggle.com/leonardopena/top-spotify-songs-from-20102019-by-year)
