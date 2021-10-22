@@ -4,10 +4,11 @@ Original Dataset from: [Top Spotify songs from 2010-2019 - BY YEAR](https://www.
 # Exploratory Data Analysis
 
 ## Steps
-1. Define the questions
-2. Explore data from original data
-3. Cleaning and Transformation data
-4. Exploratory Data Analysis
+1. [Define the questions](#step-1-:-define-the-questions)
+2. [Explore data from original dataset](#step-2-:-explore-data-from-original-dataset)
+3. [Data Cleaning and Data Transformation](#step-3-:-data-cleaning-and-data-transformation)
+4. [Exploratory Data Analysis](#step-4-:-exploratory-data-analysis)
+
 
 # Step 1 : Define the questions
 1. ศิลปินแต่ละคนเคยมีเพลงติดท็อปกี่เพลง?
@@ -19,28 +20,31 @@ Original Dataset from: [Top Spotify songs from 2010-2019 - BY YEAR](https://www.
 7. ปีใดที่มีความหลากหลายของอารมณ์เพลงมากที่สุด?
 8. ความยาวของเพลงที่ติดท็อปในแต่ละปี มีแนวโน้มเพิ่มขึ้นหรือลดลง อย่างไร?
 
-# Step 2 : Explore data from original data
+# Step 2 : Explore data from original dataset
 
-## Setup : Loading libraries and dataset
+## Install and import libraries
 
-Install and import libraries
 ```r
 install.packages("tidyverse")
-library(tidyverse)
 install.packages("DescTools") 
-library(DescTools)
 install.packages("magrittr")
-library(magrittr)
 install.packages("assertive")
+
+library(tidyverse)
+library(DescTools)
+library(magrittr)
 library(assertive)
 ```
 
-Load the data
+
+## Import the dataset
+
 ```r
 top10s_spotify <- read_csv("https://raw.githubusercontent.com/sit-2021-int214/012-Spotify-Charts/main/top10s-spotify-original.csv")
 ```
 
-## Inspect the data
+
+## Observe the data and its summary statistics
 
 ```r
 glimpse(top10s_spotify)
@@ -67,15 +71,44 @@ $ spch        <dbl> 4, 23, 14, 4, 4, 14, 9, 4, 3, 4, 3, 4, 5, 4, 45, 3, 3, 7, 5,
 $ pop         <dbl> 83, 82, 80, 79, 78, 77, 77, 77, 76, 73, 73, 73, 73, 73, 72, 72, 71, 70, 69, 69, 68, 66, 66, 65, 65, 65, 64, 63, 63, 62~
 ```
 
-The dataset has 15 variables.
+```r
+summary(top10s_spotify)
+```
+
+Result
+```
+      ...1          title              artist           top genre              year           bpm       
+ Min.   :  1.0   Length:603         Length:603         Length:603         Min.   :2010   Min.   :  0.0  
+ 1st Qu.:151.5   Class :character   Class :character   Class :character   1st Qu.:2013   1st Qu.:100.0  
+ Median :302.0   Mode  :character   Mode  :character   Mode  :character   Median :2015   Median :120.0  
+ Mean   :302.0                                                            Mean   :2015   Mean   :118.5  
+ 3rd Qu.:452.5                                                            3rd Qu.:2017   3rd Qu.:129.0  
+ Max.   :603.0                                                            Max.   :2019   Max.   :206.0  
+      nrgy           dnce             dB               live            val             dur       
+ Min.   : 0.0   Min.   : 0.00   Min.   :-60.000   Min.   : 0.00   Min.   : 0.00   Min.   :134.0  
+ 1st Qu.:61.0   1st Qu.:57.00   1st Qu.: -6.000   1st Qu.: 9.00   1st Qu.:35.00   1st Qu.:202.0  
+ Median :74.0   Median :66.00   Median : -5.000   Median :12.00   Median :52.00   Median :221.0  
+ Mean   :70.5   Mean   :64.38   Mean   : -5.579   Mean   :17.77   Mean   :52.23   Mean   :224.7  
+ 3rd Qu.:82.0   3rd Qu.:73.00   3rd Qu.: -4.000   3rd Qu.:24.00   3rd Qu.:69.00   3rd Qu.:239.5  
+ Max.   :98.0   Max.   :97.00   Max.   : -2.000   Max.   :74.00   Max.   :98.00   Max.   :424.0  
+     acous            spch             pop       
+ Min.   : 0.00   Min.   : 0.000   Min.   : 0.00  
+ 1st Qu.: 2.00   1st Qu.: 4.000   1st Qu.:60.00  
+ Median : 6.00   Median : 5.000   Median :69.00  
+ Mean   :14.33   Mean   : 8.358   Mean   :66.52  
+ 3rd Qu.:17.00   3rd Qu.: 9.000   3rd Qu.:76.00  
+ Max.   :99.00   Max.   :48.000   Max.   :99.00
+```
+
+Dataset ชุดนี้มีข้อมูลทั้งหมด 603 แถว และมีตัวแปร 15 ตัว ดังนี้
 1. `ID` คือ ลำดับของข้อมูล มีค่าตั้งแต่ 1 ถึง 603 มีประเภทเป็น `double`
-2. `Title` คือ ชื่อของเพลงที่ติดท็อป มีประเภทเป็น `character`
-3. `Artist` คือ ชื่อศิลปินเจ้าของเพลง มีประเภทเป็น `character`
-4. `Top genre` คือ ประเภทของเพลง มีประเภทเป็น `character`
+2. `title` คือ ชื่อของเพลงที่ติดท็อป มีประเภทเป็น `character`
+3. `artist` คือ ชื่อศิลปินเจ้าของเพลง มีประเภทเป็น `character`
+4. `top genre` คือ ประเภทของเพลง มีประเภทเป็น `character`
 5. `Year` คือ ปีที่เพลงติดท็อปบน Spoity
-6. `bmp` คือ ความเร็วของเพลง (มีหน่วยเป็นจังหวะต่อนาที (BPM หรือ Beats Per Minute)) พบค่าตั้งแต่ 0 จนถึง 220 มีประเภทเป็น `double`
+6. `bpm` คือ ความเร็วของเพลง มีหน่วยเป็นจังหวะต่อนาที (BPM หรือ Beats Per Minute) พบค่าตั้งแต่ 0 จนถึง 220 มีประเภทเป็น `double`
 7. `nrgy` คือ พลังงานของเพลง พบค่าตั้งแต่ 0 (น้อย) จนถึง 100 (มาก) (มีค่ามากแสดงว่ามีพลังงานมาก) มีประเภทเป็น `double`
-8. `dnce` คือ ความเหมาะสมของเพลงกับการเต้น(โดยอิงจากการผสมผสานขององค์ประกอบทางดนตรี) พบค่าตั้งแต่ 0 (น้อย) จนถึง 100 (มาก) (มีค่ามากแสดงว่าเหมาะกับการเต้นมาก) มีประเภทเป็น `double`
+8. `dnce` คือ ความเหมาะสมของเพลงกับการเต้น (โดยอิงจากการผสมผสานขององค์ประกอบทางดนตรี) พบค่าตั้งแต่ 0 (น้อย) จนถึง 100 (มาก) (มีค่ามากแสดงว่าเหมาะกับการเต้นมาก) มีประเภทเป็น `double`
 9. `dB` คือ ความดังของเพลง มีหน่วยเป็นเดซิเบล (dB หรือ decibel) พบค่าตั้งแต่ -60 (เบา) จนถึง 0 (ดัง) (มีค่ามากแสดงว่ามีความดังมาก) มีประเภทเป็น `double`
 10. `live` คือ ความสดใหม่ของเสียงเพลง พบค่าตั้งแต่ 0 (น้อย) จนถึง 75 (มาก) (มีค่ามากแสดงว่ามีโอกาสเป็นการบันทึกสด (live recording) มาก) มีประเภทเป็น `double`
 11. `val` คือ อารมณ์ของเพลง พบค่าตั้งแต่ 0 (ด้านลบ) จนถึง 100 (ด้านบวก) (มีค่ามากแสดงว่าให้อารมณ์ด้านบวกมาก) มีประเภทเป็น `double`
@@ -84,10 +117,20 @@ The dataset has 15 variables.
 14. `spch` คือ ปริมาณเสียงคำพูดที่มีปรากฏ พบค่าตั้งแต่ 0 (น้อย) จนถึง 50 (มาก) (มีค่ามากแสดงว่ามีโอกาสเป็นการบันทึกเสียงพูดโดยเฉพาะมาก เช่น ทอล์กโชว์ หนังสือเสียง เป็นต้น) มีประเภทเป็น `double`
 15. `pop` คือ ความนิยมของเพลง พบค่าตั้งแต่ 0 (น้อย) จนถึง 100 (มาก) (มีค่ามากแสดงว่าเป็นที่นิยมมาก) มีประเภทเป็น `double`
 
+โดยเบื้องต้นพบว่า
+- ควรเปลี่ยนชื่อคอลัมน์เพื่อความเข้าใจง่ายในการอ่านข้อมูล
+- ควรแปลงตอลัมน์ top genre (ประเภทของเพลง) เป็น factor
+- มีคอลัมน์ที่มีค่าต่ำสุดเป็น 0 อยู่หลายคอลัมน์ ส่วนใหญ่เป็นคุณลักษณะของเพลง แต่คอลัมน์ที่ไม่ควรจะมีค่าเป็น 0 ได้ คือ
+  - bpm หรือ ความเร็วของเพลง ไม่สามารถเป็น 0 ได้
+  - pop หรือ ความนิยมของเพลง สำหรับเพลงที่ติดท็อปไม่ควรมีค่าเป็น 0
+- dB หรือ ความดังของเพลง -60 dB เป็นไปได้ยาก เพราะถือว่าเบามาก
 
-## Step 3 : Cleaning and Transformation data
+จึงต้องมีการตรวจสอบว่าความผิดปกติดังกล่าวมาจากข้อมูลชุดใดบ้าง และทำการแก้ไขข้อมูลตามความเหมาะสม
 
-### 1. Rename columns for readability
+
+# Step 3 : Data Cleaning and Data Transformation
+
+## Rename columns for readability
 
 ```r
 top10s_spotify <- top10s_spotify %>% 
@@ -123,7 +166,7 @@ spch -> Speechiness\
 pop -> Popularity
 
 
-### 2. Check if their is any duplicate data
+## Check if their is any duplicate data
 
 ```r
 top10s_spotify %>% duplicated() %>% sum() > 0
@@ -134,43 +177,10 @@ Result
 [1] FALSE
 ```
 
-ไม่พบข้อมูลซ้ำ
+ไม่พบข้อมูลซ้ำใน dataset นี้
 
 
-### 3. Check the summary statistics for each variable
-
-```r
-summary(top10s_spotify)
-```
-
-Result
-```
-      ...1          Title              Artist             Genre                Year           BPM            Energy      Danceability  
- Min.   :  1.0   Length:603         Length:603         Length:603         Min.   :2010   Min.   :  0.0   Min.   : 0.0   Min.   : 0.00  
- 1st Qu.:151.5   Class :character   Class :character   Class :character   1st Qu.:2013   1st Qu.:100.0   1st Qu.:61.0   1st Qu.:57.00  
- Median :302.0   Mode  :character   Mode  :character   Mode  :character   Median :2015   Median :120.0   Median :74.0   Median :66.00  
- Mean   :302.0                                                            Mean   :2015   Mean   :118.5   Mean   :70.5   Mean   :64.38  
- 3rd Qu.:452.5                                                            3rd Qu.:2017   3rd Qu.:129.0   3rd Qu.:82.0   3rd Qu.:73.00  
- Max.   :603.0                                                            Max.   :2019   Max.   :206.0   Max.   :98.0   Max.   :97.00  
-  Loudness dB         Liveness        Valence         Duration      Acousticness    Speechiness       Popularity   
- Min.   :-60.000   Min.   : 0.00   Min.   : 0.00   Min.   :134.0   Min.   : 0.00   Min.   : 0.000   Min.   : 0.00  
- 1st Qu.: -6.000   1st Qu.: 9.00   1st Qu.:35.00   1st Qu.:202.0   1st Qu.: 2.00   1st Qu.: 4.000   1st Qu.:60.00  
- Median : -5.000   Median :12.00   Median :52.00   Median :221.0   Median : 6.00   Median : 5.000   Median :69.00  
- Mean   : -5.579   Mean   :17.77   Mean   :52.23   Mean   :224.7   Mean   :14.33   Mean   : 8.358   Mean   :66.52  
- 3rd Qu.: -4.000   3rd Qu.:24.00   3rd Qu.:69.00   3rd Qu.:239.5   3rd Qu.:17.00   3rd Qu.: 9.000   3rd Qu.:76.00  
- Max.   : -2.000   Max.   :74.00   Max.   :98.00   Max.   :424.0   Max.   :99.00   Max.   :48.000   Max.   :99.00
-```
-
-พบว่ามีคอลัมน์ที่มีค่าต่ำสุดเป็น 0 อยู่หลายคอลัมน์ ส่วนใหญ่เป็นคุณลักษณะของเพลง
-
-แต่คอลัมน์ที่ไม่ควรจะมีค่าเป็น 0 ได้ มีดังนี้
-- bpm คือ ความเร็วของเพลง
-- pop คือ ความนิยมของเพลง
-
-และ dB หรือค่าความดัง -60 dB ก็เป็นไปได้ยากเช่นเดียวกัน จึงต้องทำการตรวจสอบว่าค่าดังกล่าวมาจากข้อมูลชุดใดบ้าง
-
-
-### 4. Check for songs with missing data
+## Check for songs with missing data
 
 ```r
 top10s_spotify %>% filter(BPM == 0 | Popularity == 0)
@@ -188,17 +198,19 @@ Result
 5   443 Million~ Adele    briti~  2016     0      0            0           -60        0       0      227            0           0          0
 ```
 
-
-### 5. Replace 0-popularity values with NA
-
 พบว่ามีเพลงที่ Popularity เป็น 0 อยู่ทั้งหมด 5 เพลง แต่การตัดข้อมูลชุดนี้ออกไปเลยอาจส่งผลต่อการวิเคราะห์ข้อมูลอื่น ๆ เช่น จำนวนเพลงที่ติดท็อปของศิลปิน เป็นต้น เราจึงเลือกที่จะเก็บไว้ และทำการแทนค่า Popularity ด้วย NA
+
+ส่วนเพลง Million Years Ago ของ Adele ซึ่งมี BPM และคุณลักษณะของเพลงเป็น 0 เกือบทั้งหมด ไม่สามารถบอกได้ว่าค่าไหนสามารถนำไปใช้ได้บ้าง จึงต้องแทนค่าที่เป็น 0 ทุกตัวด้วย NA
+
+
+## Replace missing values with NA
+
 ```r
 top10s_spotify <-
   top10s_spotify %>%
   mutate(Popularity = ifelse(Popularity == 0, NA, Popularity))
 ```
 
-ส่วนเพลง Million Years Ago ของ Adele ซึ่งมี BPM และคุณลักษณะของเพลงเป็น 0 เกือบหมด ไม่สามารถบอกได้ว่าค่าไหนสามารถนำไปใช้ได้ จึงแทนค่า 0 ทุกตัวด้วย NA
 ```r
 top10s_spotify <-
   top10s_spotify %>%
@@ -206,9 +218,10 @@ top10s_spotify <-
     across(everything(), ~ ifelse(Title == 'Million Years Ago' & . == 0, NA, .)))
 ```
 
-### 6. Check loudness in ascending order
 
-ตรวจ Loudness dB ของเพลงอื่น ๆ เพื่อดูความเป็นไปได้ของ -60 dB โดยเรียงจากเบาไปดัง
+## Check loudness in ascending order
+
+ตรวจสอบ Loudness dB ของเพลงอื่น ๆ เพื่อดูความเป็นไปได้ของ -60 dB โดยเรียงจากเบาไปดัง
 ```r
 top10s_spotify %>% select(Title, `Loudness dB`) %>% arrange(`Loudness dB`)
 ```
@@ -232,10 +245,9 @@ Result
 ```
 
 
-### 7. Replace -60 dB with NA
+## Replace -60 dB with NA
 
 พบว่าเพลงที่เบาสุดจริง ๆ ควรดังอย่างน้อย -15 dB ขึ้นไป จึงทำการแทนค่า -60 dB ด้วย NA
-
 ```r
 top10s_spotify <-
   top10s_spotify %>%
@@ -243,7 +255,7 @@ top10s_spotify <-
 ```
 
 
-### 8. Convert genre to factor
+## Convert genre to factor
 
 แนวเพลงเป็นค่าแบบ categorical เราจึงควรแปลงเป็นค่า factor
 ```r
@@ -253,21 +265,26 @@ top10s_spotify <-
 ```
 
 
-## Step 4 : Exploratory Data Analysis
+# Step 4 : Exploratory Data Analysis
 
-### 1. ศิลปินแต่ละคนเคยมีเพลงติดท็อปกี่เพลง?
+## 1. ศิลปินแต่ละคนเคยมีเพลงติดท็อปกี่เพลง?
+
 ```r
 
 ```
+
 Result
 ```
 
 ```
 
-Summary\
+Summary
+
 สรุป
 
-### 2. ในช่วงปี 2010 - 2019 ศิลปินคนใดที่มีเพลงติดท็อปมากที่สุดเป็น 5 อันดับแรก และแต่ละคนนับได้กี่เพลง?
+
+## 2. ในช่วงปี 2010 - 2019 ศิลปินคนใดที่มีเพลงติดท็อปมากที่สุดเป็น 5 อันดับแรก และแต่ละคนนับได้กี่เพลง?
+
 ```r
 top10s_spotify %>%
   group_by(Artist) %>%
@@ -288,14 +305,17 @@ Result
 5 Lady Gaga             14
 ```
 
-Summary\
+Summary
+
 ในช่วงปี 2010 - 2019 
 ศิลปินที่มีเพลงติดท็อปมากที่สุดเป็นอันดับที่หนึ่ง คือ Katy Perry ที่มีจำนวนเพลงติดท็อปรวม 17 เพลง
 อันดับที่สอง คือ Justin Bieber ที่มีจำนวนเพลงติดท็อปรวม 16 เพลง
 อันดับที่สามร่วมกัน คือ Maroon 5 และ Rihanna ที่ต่างมีจำนวนเพลงติดท็อปรวม 15 เพลงเท่ากัน
 และอันดับที่ห้า คือ Lady Gaga ที่มีจำนวนเพลงติดท็อปรวม 14 เพลง
 
-### 3. ศิลปินคนใดที่มีเพลงติดท็อปติดต่อกันหลายปีที่สุด และติดต่อกันกี่ปี?
+
+## 3. ศิลปินคนใดที่มีเพลงติดท็อปติดต่อกันหลายปีที่สุด และติดต่อกันกี่ปี?
+
 ```r
 top10s_spotify %>%
   group_by(Artist) %>%
@@ -325,10 +345,13 @@ Result
 # ... with 174 more rows
 ```
 
-Summary\
+Summary
+
 Katy Perry เป็นศิลปินที่มีเพลงติดท็อปติดต่อกันหลายปีที่สุด และติดต่อกันเป็นเวลา 8 ปี รองลงมาคือ Calvin Harris และ Ariana Grande ด้วยระยะเวลา 7 ปี และ 6 ปี ตามลำดับ
 
-### 4. เพลงที่มี BPM ไม่เกิน 100 BPM ที่เป็นที่นิยมในปี 2019?
+
+## 4. เพลงที่มี BPM ไม่เกิน 100 BPM ที่เป็นที่นิยมในปี 2019?
+
 ```r
 top10s_spotify %>% filter(Year == 2019)%>% filter (BPM <= 100) %>% select(Title)
 ```
@@ -352,10 +375,13 @@ Result
 12 Cross Me (feat. Chance the Rapper & PnB Rock)
 ```
 
-Summary\
+Summary
+
 เพลงที่มี BPM ไม่เกิน 100 BPM ที่เป็นที่นิยมในปี 2019 มีทั้งหมด 12 เพลง
 
-### 5. ในปี 2016 มีเพลงชื่ออะไร ศิลปินชื่ออะไร เป็นเพลงประเภทไหนที่ติดท็อปบ้าง?
+
+## 5. ในปี 2016 มีเพลงชื่ออะไร ศิลปินชื่ออะไร เป็นเพลงประเภทไหนที่ติดท็อปบ้าง?
+
 ```r
 top10s_spotify %>% filter(year == 2016) %>% select(title,artist,top.genre) %>% view()
 ```
@@ -447,11 +473,13 @@ Result
 80 "Million Years Ago"                                                                                             "Adele"                  british soul
 ```
 
-Summary\
+Summary
+
 ในปี 2016 มีเพลงทั้งหมด 80 เพลงที่ติดท็อป
 
 
-### 6. แนวเพลงที่ได้รับความนิยมมากที่สุดในแต่ละปี มีอะไรบ้าง?
+## 6. แนวเพลงที่ได้รับความนิยมมากที่สุดในแต่ละปี มีอะไรบ้าง?
+
 ```r
 top10s_spotify %>%
   group_by(Year, Genre) %>%
@@ -483,7 +511,7 @@ Summary
 - ปี 2019 - **Pop** เป็นแนวเพลงที่ได้รับความนิยมมากที่สุด
 
 
-### 7. ปีใดที่มีความหลากหลายของอารมณ์เพลงมากที่สุด?
+## 7. ปีใดที่มีความหลากหลายของอารมณ์เพลงมากที่สุด?
 
 ```r
 top10s_spotify %>%
@@ -514,7 +542,7 @@ Summary
 ปี 2014 เป็นปีที่มีความหลากหลายของอารมณ์เพลงระหว่าง เพลงที่ให้ความรู้สึกด้านบวกและเพลงที่ให้ความรู้สึกด้านลบมากที่สุด รองลงมาคือปี 2015 และ 2019 ตามลำดับ
 
 
-### 8. ความยาวของเพลงที่ติดท็อปในแต่ละปี มีแนวโน้มเพิ่มขึ้นหรือลดลง อย่างไร?
+## 8. ความยาวของเพลงที่ติดท็อปในแต่ละปี มีแนวโน้มเพิ่มขึ้นหรือลดลง อย่างไร?
 
 ```r
 cor(top10s_spotify$Year, top10s_spotify$Duration)
@@ -526,7 +554,7 @@ Result
 ```
 
 > ค่าที่ได้จากการหา correlation coefficient จะอยู่ระหว่าง -1 และ 1 โดย
-> - -1 คือค่าทั้งสองตัวแปรไปคนละทางอย่างสิ้นเชิง
+> - -1 คือ ค่าทั้งสองตัวแปรไปคนละทางอย่างสิ้นเชิง
 > - 1 คือ ค่าทั้งสองตัวแปรเป็นไปในทางเดียวกัน
 
 Summary

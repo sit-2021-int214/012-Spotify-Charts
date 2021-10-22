@@ -1,3 +1,5 @@
+# Step 2
+
 # Install and import libraries
 #install.packages("tidyverse")
 library(tidyverse)
@@ -14,7 +16,11 @@ top10s_spotify <- read_csv("https://raw.githubusercontent.com/sit-2021-int214/01
 # Inspect the data
 glimpse(top10s_spotify)
 
+# Check the summary statistics for each variable
+summary(top10s_spotify)
 
+
+# Step 3
 
 # Change column name
 top10s_spotify <- top10s_spotify %>% 
@@ -35,9 +41,6 @@ top10s_spotify <- top10s_spotify %>%
 
 # Check if their is any duplicate data
 top10s_spotify %>% duplicated() %>% sum() > 0
-
-# Check the summary statistics for each variable
-summary(top10s_spotify)
 
 # Show only the data that have their BPM or Popularity equals to 0
 top10s_spotify %>% filter(BPM == 0 | Popularity == 0)
@@ -67,8 +70,7 @@ top10s_spotify <-
   mutate(Genre = as.factor(Genre))
 
 
-
-# EDA
+# Step 4
 
 # 1.
 
@@ -107,7 +109,5 @@ top10s_spotify %>%
   summarise(ValenceVariation = sd(Valence, na.rm = T)) %>%
   arrange(desc(ValenceVariation))
 
-# 8.
+# 8. ความยาวของเพลงที่ติดท็อปในแต่ละปี มีแนวโน้มเพิ่มขึ้นหรือลดลง อย่างไร?
 cor(top10s_spotify$Year, top10s_spotify$Duration)
-
-
