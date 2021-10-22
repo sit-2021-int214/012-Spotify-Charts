@@ -353,31 +353,29 @@ Katy Perry เป็นศิลปินที่มีเพลงติดท
 ## 4. เพลงที่มี BPM ไม่เกิน 100 BPM ที่เป็นที่นิยมในปี 2019?
 
 ```r
-top10s_spotify %>% filter(Year == 2019)%>% filter (BPM <= 100) %>% select(Title)
+top10s_spotify %>% filter(Year == "2019", BPM < 100) %>% select(Title, Artist, BPM)
 ```
 
 **Result**
 ```
-# A tibble: 12 x 1
-   Title                                               
-   <chr>                                               
- 1 Memories                                            
- 2 South of the Border (feat. Camila Cabello & Cardi B)
- 3 Happier                                             
- 4 Good as Hell (feat. Ariana Grande) - Remix          
- 5 Only Human                                          
- 6 Beautiful People (feat. Khalid)                     
- 7 Don't Call Me Up                                    
- 8 Takeaway                                            
- 9 No Guidance (feat. Drake)                           
-10 Taki Taki (feat. Selena Gomez, Ozuna & Cardi B)     
-11 Con Calma - Remix                                   
-12 Cross Me (feat. Chance the Rapper & PnB Rock)
+# A tibble: 10 x 3
+   Title                                                Artist           BPM
+   <chr>                                                <chr>          <dbl>
+ 1 Memories                                             Maroon 5          91
+ 2 South of the Border (feat. Camila Cabello & Cardi B) Ed Sheeran        98
+ 3 Good as Hell (feat. Ariana Grande) - Remix           Lizzo             96
+ 4 Only Human                                           Jonas Brothers    94
+ 5 Beautiful People (feat. Khalid)                      Ed Sheeran        93
+ 6 Don't Call Me Up                                     Mabel             99
+ 7 No Guidance (feat. Drake)                            Chris Brown       93
+ 8 Taki Taki (feat. Selena Gomez, Ozuna & Cardi B)      DJ Snake          96
+ 9 Con Calma - Remix                                    Daddy Yankee      94
+10 Cross Me (feat. Chance the Rapper & PnB Rock)        Ed Sheeran        95
 ```
 
 **Summary**
 
-เพลงที่มี BPM ไม่เกิน 100 BPM ที่เป็นที่นิยมในปี 2019 มีทั้งหมด 12 เพลง
+เพลงที่มี BPM ไม่เกิน 100 BPM ที่เป็นที่นิยมในปี 2019 มีทั้งหมด 10 เพลง
 
 
 ## 5. ในปี 2016 มีเพลงชื่ออะไร ศิลปินชื่ออะไร เป็นเพลงประเภทไหนที่ติดท็อปบ้าง?
