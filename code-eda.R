@@ -93,8 +93,14 @@ top10s_spotify %>%
 # 4. เพลงที่มี BPM ไม่เกิน 100 BPM ที่เป็นที่นิยมในปี 2019?
 top10s_spotify %>% filter(Year == "2019", BPM < 100) %>% select(Title, Artist, BPM)
 
-# 5. ในปี 2016 มีเพลงชื่ออะไร ศิลปินชื่ออะไร เป็นเพลงประเภทไหนที่ติดท็อปบ้าง?
-top10s_spotify %>% filter(Year == 2016) %>% select(Title, Artist, Genre) %>% print(n = Inf)
+# 5. ปีใดที่ The Weeknd มีเพลงติดท็อปมากที่สุด เพลงอะไรบ้าง?
+top10s_spotify %>%
+  filter(Artist == "The Weeknd") %>%
+  group_by(Year) %>%
+  mutate(Count = n()) %>%
+  ungroup() %>%
+  filter(Count == max(Count)) %>%
+  select(Title, Year)
 
 # 6. แนวเพลงที่ได้รับความนิยมมากที่สุดในแต่ละปี มีอะไรบ้าง
 top10s_spotify %>%
