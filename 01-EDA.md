@@ -4,10 +4,10 @@ Original Dataset from: [Top Spotify songs from 2010-2019 - BY YEAR](https://www.
 # Exploratory Data Analysis
 
 ## Steps
-1. [Define the questions](#step-1-define-the-questions)
-2. [Explore data from original dataset](#step-2-explore-data-from-original-dataset)
-3. [Data Cleaning and Data Transformation](#step-3-data-cleaning-and-data-transformation)
-4. [Exploratory Data Analysis](#step-4-exploratory-data-analysis)
+1. [Define the questions](#step-1--define-the-questions)
+2. [Explore data from original dataset](#step-2--explore-data-from-original-dataset)
+3. [Data Cleaning and Data Transformation](#step-3--data-cleaning-and-data-transformation)
+4. [Exploratory Data Analysis](#step-4--exploratory-data-analysis)
 
 
 # Step 1 : Define the questions
