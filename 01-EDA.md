@@ -265,6 +265,13 @@ top10s_spotify <-
 ```
 
 
+## 8. Write to CSV
+
+```r
+write_csv(top10s_spotify, "top10s-spotify-cleaned.csv")
+```
+
+
 # Step 4 : Exploratory Data Analysis
 
 ## 1. ศิลปินคนใดที่มีภาพรวมของเพลงที่ติดท็อปเป็นเพลงช้า ให้พลังงานน้อย หรือเหมาะกับการเต้นน้อยที่สุดเป็น 5 อันดับแรก และมีใครบ้าง?

@@ -70,6 +70,10 @@ top10s_spotify <-
   mutate(Genre = as.factor(Genre))
 
 
+# Write to CSV
+write_csv(top10s_spotify, "top10s-spotify-cleaned.csv")
+
+
 # Step 4
 
 # 1. What is the top 3 artists who on average, produced the slow and least energetic songs?
