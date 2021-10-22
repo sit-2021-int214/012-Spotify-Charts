@@ -37,8 +37,8 @@ The Top Spotify Songs from 2010-2019 were stracted from http://organizeyourmusic
 ### Steps
 
 1. Define the questions
-2. Explore data from original data
-3. Cleaning and Transformation data
+2. Explore data from original dataset
+3. Data Cleaning and Data Transformation
 4. Exploratory Data Analysis
 
 ### Tools
