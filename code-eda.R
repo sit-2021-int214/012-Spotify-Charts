@@ -72,8 +72,19 @@ top10s_spotify <-
 
 # Step 4
 
-# 1.
-
+# 1. What is the top 3 artists who on average, produced the slow and least energetic songs?
+# use values from Danceability, Energy, and normalized BPM
+top10s_spotify %>%
+  na.omit() %>%
+  mutate(
+    NormBPM = (BPM - min(BPM)) / (max(BPM) - min(BPM)) * 100,
+    PartialScore = (Danceability + Energy + NormBPM) / 3) %>%
+  group_by(Artist) %>%
+  summarise(
+    Score = mean(PartialScore)) %>%
+  arrange(Score) %>%
+  head(5)
+  
 # 2. ในช่วงปี 2010 - 2019 ศิลปินคนใดที่มีเพลงติดท็อปมากที่สุดเป็น 5 อันดับแรก และแต่ละคนนับได้กี่เพลง?
 top10s_spotify %>%
   group_by(Artist) %>%

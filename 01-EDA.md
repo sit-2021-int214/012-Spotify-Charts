@@ -267,20 +267,36 @@ top10s_spotify <-
 
 # Step 4 : Exploratory Data Analysis
 
-## 1. ศิลปินแต่ละคนเคยมีเพลงติดท็อปกี่เพลง?
+## 1. ศิลปินคนใดที่มีภาพรวมของเพลงที่ติดท็อปเป็นเพลงช้า ให้พลังงานน้อย หรือเหมาะกับการเต้นน้อยที่สุดเป็น 5 อันดับแรก และมีใครบ้าง?
 
 ```r
-
+top10s_spotify %>%
+  na.omit() %>%
+  mutate(
+    NormBPM = (BPM - min(BPM)) / (max(BPM) - min(BPM)) * 100,
+    PartialScore = (Danceability + Energy + NormBPM) / 3) %>%
+  group_by(Artist) %>%
+  summarise(
+    Score = mean(PartialScore)) %>%
+  arrange(Score) %>%
+  head(5)
 ```
 
 **Result**
 ```
-
+# A tibble: 5 x 2
+  Artist            Score
+  <chr>             <dbl>
+1 Passenger          34.5
+2 John Legend        35.4
+3 A Great Big World  39.4
+4 Sleeping At Last   39.4
+5 Christina Perri    42.9
 ```
 
 **Summary**
 
-สรุป
+ศิลปินที่ภาพรวมของเพลงที่ติดท็อปเป็นเพลงช้า ให้พลังงานน้อย หรือเหมาะกับการเต้นน้อยที่สุด คือ Passenger ตามด้วย John Legend, A Great Big World, Sleeping At Last และ Christina Perri
 
 
 ## 2. ในช่วงปี 2010 - 2019 ศิลปินคนใดที่มีเพลงติดท็อปมากที่สุดเป็น 5 อันดับแรก และแต่ละคนนับได้กี่เพลง?
