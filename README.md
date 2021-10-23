@@ -63,6 +63,10 @@ The Top Spotify Songs from 2010-2019 were stracted from http://organizeyourmusic
 
 ### References
 - [Top Spotify songs from 2010-2019 - BY YEAR](https://www.kaggle.com/leonardopena/top-spotify-songs-from-20102019-by-year)
+- [Is my Spotify music boring? An analysis involving music, data, and machine learning](https://towardsdatascience.com/is-my-spotify-music-boring-an-analysis-involving-music-data-and-machine-learning-47550ae931de)
+- [ifelse: Conditional Element Selection](https://www.rdocumentation.org/packages/base/versions/3.6.2/topics/ifelse)
+- [Apply a function (or functions) across multiple columns](https://dplyr.tidyverse.org/reference/across.html)
+- [R - count maximum number of consecutive dates](https://stackoverflow.com/a/53713204)
 
 
 
