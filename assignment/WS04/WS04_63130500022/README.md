@@ -194,19 +194,20 @@ Result:
 ```
 
 ## Part 4: Visualization with GGplot2
-### 1.) Graph show relation between height and mass
+### 1.) Graph show how many each type of books.
 ```
-scat_plot <- starwars %>% filter(mass<500) %>% ggplot(aes(x=height,y=mass))+
-  geom_point(aes(color=gender))
-
-scat_plot+geom_smooth()
+Typeplot <- table(programing_book$Type)
+barplot(Typeplot,main="Type Of Book",xlab = "Type",ylab = "Number of Book",col=rgb(0.1,0.6,0.8))
 ```
 Result:
 
 ![Graph 1](graph1.png)
 
-**Guideline:
-Embed Image by using this syntax in markdown file
-````
-![Name](imageFile)
-````
+### 2.) Graph show the relationship between number of pages more than 500 and price less than 50.
+```
+scatplot <- programing_book %>% filter(Number_Of_Pages > 500,Price <50) %>% ggplot(aes(x=Price,y=Number_Of_Pages))+geom_point(aes(color=Price))
+scatplot+geom_smooth()
+```
+Result:
+
+![Graph 1](graph1.png)
