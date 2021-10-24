@@ -34,6 +34,13 @@ $ Number_Of_Pages <int> 105, 527, 50, 393, 305, 288, 256, 368, 259, 128, 352, 35
 $ Type            <chr> "Hardcover", "Hardcover", "Kindle Edition", "Hardcover", "Kindle Edition", "Paperback", "H~
 $ Price           <dbl> 9.323529, 11.000000, 11.267647, 12.873529, 13.164706, 14.188235, 14.232353, 14.364706, 14.~
 ```
+- Rating คะแนนของหนังสือ
+- Reviews จำนวนความคิดเห็น
+- Book_title ชื่อหนังสือ
+- Description รายละเอียดของหนังสือ
+- Number_of_Pages จำนวนหน้าของหนังสือ
+- Type ประเภทของหนังสือ
+- Price ราคาของหนังสือ
 
 ## Part 2: Learning function from Tidyverse
 
