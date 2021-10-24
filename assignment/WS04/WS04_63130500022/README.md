@@ -44,12 +44,12 @@ $ Price           <dbl> 9.323529, 11.000000, 11.267647, 12.873529, 13.164706, 14
 
 ## Part 2: Learning function from Tidyverse
 
-- Function `select()` from package [dplyr](https://dplyr.tidyverse.org/articles/dplyr.html#select-columns-with-select)). It using for select columns
+- Function `summarise()` from package [dplyr](https://dplyr.tidyverse.org/reference/summarise.html)). It using for select columns
 
 ```
-starwars %>% select(name,height)
+summarise(programing_book,mean(Number_Of_Pages,na.rm =T))
 ```
-** You can sepearate this part or combine in part of `Transform data with dplyr and finding insight the data`
+** สามารถสรุปข้อมูลโดยเราจะสามารถเจาะจงได้ว่าเราต้องการอะไรของอะไร ( อย่างเช่น mean min max เป็นต้น)
 
 ## Part 3: Transform data with dplyr and finding insight the data
 
