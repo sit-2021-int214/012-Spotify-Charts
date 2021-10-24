@@ -54,7 +54,7 @@ summarise(programing_book,mean(Number_Of_Pages,na.rm =T))
 
 ## Part 3: Transform data with dplyr and finding insight the data
 
-แสดงชื่อหนังสือ ราคา และ rating ของหนังสือที่มี rating สูงที่สุด
+1. แสดงชื่อหนังสือ ราคา และ rating ของหนังสือที่มี rating สูงที่สุด
 
 ```
 is.numeric(programing_book$Rating)
@@ -68,7 +68,7 @@ Result:
                Book_title    Price Rating
 1 Your First App: Node.js 25.85588      5
 ```
-แสดงชื่อหนังสือ ราคา และ reviews ของหนังสือที่มี reviews สูงที่สุด
+2. แสดงชื่อหนังสือ ราคา และ reviews ของหนังสือที่มี reviews สูงที่สุด
 
 ```
 is.numeric(programing_book$Reviews)
@@ -84,7 +84,7 @@ Result:
                                                          Book_title    Price Reviews
 1 Start with Why: How Great Leaders Inspire Everyone to Take Action 14.23235    5938
 ```
-แสดงชื่อหนังสือและราคาของหนังสือที่มี price สูงที่สุด
+3. แสดงชื่อหนังสือและราคาของหนังสือที่มี price สูงที่สุด
 
 ```
 is.numeric(programing_book$Price)
@@ -98,7 +98,7 @@ Result:
                              Book_title  Price
 1 A Discipline for Software Engineering 235.65
 ```
-แสดงชื่อหนังสือและราคาของหนังสือทั้งหมดที่มี rating มากกว่า 4.1 และ review น้อยกว่า 100
+4. แสดงชื่อหนังสือและราคาของหนังสือทั้งหมดที่มี rating มากกว่า 4.1 และ review น้อยกว่า 100
 
 ```
 programing_book %>% filter(Rating > 4.1,Reviews >100) %>%  select(Book_title,Price)
@@ -149,7 +149,7 @@ Result:
 39                                                                               Introduction to Algorithms  92.255882
 40                                                               Artificial Intelligence: A Modern Approach 115.750000
 ```
-แสดงชื่อหนังสือและราคาของหนังสือทั้งหมดที่มีจำนวนหน้ามากกว่า 500 และ price น้อยกว่า 500
+5. แสดงชื่อหนังสือและราคาของหนังสือทั้งหมดที่มีจำนวนหน้ามากกว่า 500 และ price น้อยกว่า 500
 
 ```
 programing_book %>% filter(Number_Of_Pages > 500,Price <50) %>%  select(Book_title,Price)
@@ -175,7 +175,7 @@ Result:
 14                                                       Programming Ruby: The Pragmatic Programmers' Guide 46.00000
 15                            The Linux Programming Interface: A Linux and Unix System Programming Handbook 46.35882
 ```
-แสดงชื่อหนังสือและราคาของหนังสือทั้งหมดที่เป็นประเภทปกอ่อน และ rating มากกว่า 4.5
+6. แสดงชื่อหนังสือและราคาของหนังสือทั้งหมดที่เป็นประเภทปกอ่อน และ rating มากกว่า 4.5
 
 ```
 programing_book %>% filter(Type == "Paperback",Rating >4.5) %>%  select(Book_title,Price)
