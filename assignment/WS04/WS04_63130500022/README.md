@@ -211,4 +211,4 @@ scatplot+geom_smooth()
 ```
 Result:
 
-![Graph 1](graph1.png)
+![Graph 2](graph2.png)
