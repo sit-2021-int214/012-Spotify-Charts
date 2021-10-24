@@ -44,7 +44,7 @@ $ Price           <dbl> 9.323529, 11.000000, 11.267647, 12.873529, 13.164706, 14
 
 ## Part 2: Learning function from Tidyverse
 
-- Function `summarise()` from package [dplyr](https://dplyr.tidyverse.org/reference/summarise.html)). It using for select columns
+- Function `summarise()` from package [dplyr](https://dplyr.tidyverse.org/reference/summarise.html)). It using for summarise columns
 
 ```
 summarise(programing_book,mean(Number_Of_Pages,na.rm =T))
