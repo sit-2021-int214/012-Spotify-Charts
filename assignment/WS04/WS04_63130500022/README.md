@@ -18,6 +18,7 @@ Choose Dataset:
 library(dplyr)
 library(readr)
 library(stringr)
+library(ggplot2)
 
 # Dataset
 programing_book <- read.csv('https://raw.githubusercontent.com/sit-2021-int214/012-Top-Spotify-Songs/main/assignment/WS04/WS04_63130500022/prog_book.csv')
