@@ -53,7 +53,19 @@ summarise(programing_book,mean(Number_Of_Pages,na.rm =T))
 
 ## Part 3: Transform data with dplyr and finding insight the data
 
-//Explain here
+แสดงชื่อหนังสือ ราคา และ rating ของหนังสือที่มี rating สูงที่สุด
+
+```
+programing_book  %>% filter(Rating == max(Rating)) %>%  select(Book_title,Price,Rating)
+```
+
+Result:
+
+```
+Book_title    Price Rating
+1 Your First App: Node.js 25.85588      5
+```
+หนังสือที่มี reviews สูงที่สุด
 
 ```
 #Code here
@@ -64,10 +76,50 @@ Result:
 ```
 #Copy Result from console to here
 ```
-//Explain
+หนังสือที่มี price สูงที่สุด
 
-- list 1
-- list 2
+```
+#Code here
+```
+
+Result:
+
+```
+#Copy Result from console to here
+```
+หนังสือทั้งหมดที่มี rating มากกว่า 4.1 และ review น้อยกว่า 100
+
+```
+#Code here
+```
+
+Result:
+
+```
+#Copy Result from console to here
+```
+หนังสือทั้งหมดที่มีจำนวนหน้ามากกว่า 500 และ price น้อยกว่า 500
+
+```
+#Code here
+```
+
+Result:
+
+```
+#Copy Result from console to here
+```
+หนังสือทั้งหมดที่เป็นประเภทปกอ่อน
+
+```
+#Code here
+```
+
+Result:
+
+```
+#Copy Result from console to here
+```
 
 ## Part 4: Visualization with GGplot2
 ### 1.) Graph show relation between height and mass
