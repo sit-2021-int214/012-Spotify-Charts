@@ -1,20 +1,30 @@
 # 012-Top-Spotify-Songs
 Original Dataset from: [Top Spotify songs from 2010-2019 - BY YEAR](https://www.kaggle.com/leonardopena/top-spotify-songs-from-20102019-by-year)
+
 ## Overview 
 Overview
+
 ## Steps
-<ol>
-<li>Setup dataset and tools</li>
-<li>Clean up the dataset</li>
-<li>Analytical Inferential Statistics</li>
-<li>Data Visualization</li>
-</ol>
+1. [Setup dataset and tools](#setup-dataset-and-tools)
+2. [Data Visualization](#data-visualization)
+3. [Analytical Inferential Statistics](#analytical-inferential-statistics)
 
 ## Setup dataset and tools
-
-## Clean up the detaset
+### Import cleaned dataset
+```r
+top10s_spotify <- read_csv("https://raw.githubusercontent.com/sit-2021-int214/012-Top-Spotify-Songs/main/top10s-spotify-cleaned.csv")
+```
+### Import necessary packages
+```r
+install.packages("tidyverse") # When never had installed it before
+library(tidyverse)
+```
 
 ## Data Visualization
+```r
+install.packages("tidyverse") # When never had installed it before
+library(tidyverse)
+```
 
 ## Analytical Inferential Statistics
 ### Step to do:
