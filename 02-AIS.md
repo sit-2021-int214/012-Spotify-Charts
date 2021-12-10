@@ -4,9 +4,10 @@ Original Dataset from: [Top Spotify songs from 2010-2019 - BY YEAR](https://www.
 Overview
 ## Steps
 <ol>
-<li>Data Visualization</li>
+<li>Setup datasets and tools</li>
+<li>Clean up the datas</li>
 <li>Analytical Inferential Statistics</li>
-<li>Data-Storytelling: Oral Presentation</li>
+<li>Data Visualization</li>
 </ol>
 
 
