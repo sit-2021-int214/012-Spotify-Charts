@@ -2,7 +2,7 @@
 Original Dataset from: [Top Spotify songs from 2010-2019 - BY YEAR](https://www.kaggle.com/leonardopena/top-spotify-songs-from-20102019-by-year)
 
 ## Overview 
-Overview
+This section will show the way to access our data visualization from the dataset 'Top Spotify songs from 2010-2019' by using Power BI Dashboard to display it, including explain the steps to do hypothesis testing and its conclusion. By bringing a cleaned dataset from the part of [Exploratory Data Analysis](https://github.com/sit-2021-int214/012-Top-Spotify-Songs/blob/main/01-EDA.md) to study and statistical inference with representing statistical significance after.
 
 ## Steps
 1. [Setup dataset and tools](#setup-dataset-and-tools)
@@ -21,92 +21,57 @@ library(tidyverse)
 ```
 
 ## Data Visualization
-```r
-install.packages("tidyverse") # When never had installed it before
-library(tidyverse)
-```
+In this part, we create and display the data on the dashboard by BI Tools named 'Power BI' then you could access them with click on this link. >>> [Top Spotify songs from 2010-2019 : Data-visualization](https://app.powerbi.com/view?r=eyJrIjoiMGU1ZWM4NTgtYmM1NS00MGNkLWI1MGUtYTA2MmVjMzhhMjNlIiwidCI6IjZmNDQzMmRjLTIwZDItNDQxZC1iMWRiLWFjMzM4MGJhNjMzZCIsImMiOjEwfQ%3D%3D)
 
 ## Analytical Inferential Statistics
-### Step to do:
 
-0. Assign variables:
-   - u0 or p0
-   - xbar or pbar
-   - n
-   - sd (or sigma)
-   - alpha (default is 0.05)
-1. State the hypothesis
-2. Select Level of significance (alpha)
-3. Select Test statistic (This formula for one population)
-   - z/t <- (xbar - u0) / (sd/sqrt(n))
-   - z <- (pbar-p0) / sqrt((p0\*(1-p0))/n)
-4. Finding P-value approach or Critical Value approach
-   - P-value for Z: `pvalue <- pnorm(z)`
-   - Critical Value for Z: `zalpha <- qnorm(alpha)`
-   - P-value for T: `pvalue <- pt(q, df,lower.tail = TRUE)`
-   - talpha for T: `talpha <- qt(p, df, lower.tail = TRUE)`
-5. Compare P-value with alpha or z/t with zalpha/talpha
-6. Conclusion
+### Our hypothesis
+Explore a sample of 603 songs that had been the top Spotify songs by the year 2010 - 2019. About a variable of all which show each song's tempo or 'BPM'. And consider verifying whether BPM that attains a value of 120 and more, involves Spotify user group popularity. By finding that the sample BPM mean is 118.7425 and the sample BPM standard deviation is 24.3395.
 
-### Example 1 (Ref: Chapter 9 Page 356)
-
-The Federal Trade Commission (FTC) periodically conducts statistical studies designed to test the claims that manufacturers make about their products. For example, the label on a large can of Hilltop Coffee states that the can contains 3 pounds of coffee. Thus, the FTC interprets the label information on a large can of coffee as a claim by Hilltop that the population mean filling weight is at least 3 pounds per can. The director of the FTC’s testing program willing to risk a 1% chance of making such an error. Suppose a sample of 36 cans of coffee is selected and the population standard deviation can be assumed known with a value of σ = 0.18. Is x̄ = 2.92 pounds small enough to cause us to reject H0 ?
-
-Step 0: Assign variables
-
-```
-n <-
-sd <-
-xbar <-
-u0 <-
+### Step 0: Assign variables
+```r
+n <- 603
+sd <- 24.3395
+xbar <- 118.7425
+U0 <- 120
 ```
 
-Step 1: State the hypothesis
-
-```
-#h0:   ,ha:
-```
-
-Step 2: Level of significance
-
-```
-alpha <-
+### Step 1: State the hypothesis
+```r
+#h0: U0 >= 120
+#ha: U0 < 120
 ```
 
-Step 3: Test statistic
-
+### Step 2: Level of significance
+```r
+alpha <- 0.10
 ```
-z <- (xbar - u0) / (sd/sqrt(n));z
+
+### Step 3: Test statistic
+```r
+z <- (xbar - U0) / (sd/sqrt(n))
+# z = -1.268688
 ```
 
-Step 4: Finding P-value approach or Critical Value approach
-
-```
-# P-value approach
-pvalue <- pnorm(z); pvalue
-
+### Step 4: Finding Critical Value approach
+```r
 # Critical Value approach
-zalpha <- qnorm(alpha);zalpha
+zalpha <- qnorm(alpha)
+# zalpha = -1.281552
 ```
 
-Step 5: Compare
-
-```
-# Using p-value approach
-if(pvalue<=alpha){
+### Step 5: Compare
+```r
+# When using critical value
+if(z<zalpha){
   print("Reject H0")
 }else{
   print("Accept H0")
 }
 
-# Using critical value
-if(z<=zalpha){
-  print("Reject H0")
-}else{
-  print("Accept H0")
-}
+# Result: Accept H0
+
 ```
 
-Step 6: Conclusion
-
-//Answer
+### Step 6: Conclusion
+BPM that attains a value of 120 and more, truly involves and affects Spotify user group popularity.
