@@ -25,41 +25,32 @@ The Top Spotify Songs from 2010-2019 were stracted from http://organizeyourmusic
 ## Overview
 เป็นการวิเคราะห์ข้อมูลเชิงสถิติเกี่ยวกับรายการเพลงยอดนิยมบน Spotify ศิลปินเจ้าของเพลง ประเภทของเพลง ลักษณะเสียงของเพลง และอื่นๆ โดยได้นำเข้าชุดข้อมูลดังกล่าวมาจากแหล่งรวมชุดข้อมูลบนอินเทอร์เน็ต (Kaggle) ตามที่ปรากฏในแหล่งอ้างอิง นำมาทำความสะอาดและวิเคราะห์โดยใช้ภาษา R เพื่อหาความสัมพันธ์ระหว่างแต่ละข้อมูล
 
-<!--
-### Questions
-1. ศิลปินแต่ละคนเคยมีเพลงติดท็อปกี่เพลง?
-2. ในช่วงปี 2010 - 2019 ศิลปินคนใดที่มีเพลงติดท็อปมากที่สุดและมีกี่เพลง?
-3. ศิลปินคนใดที่มีเพลงติดท็อปติดต่อกันหลายปีที่สุด และติดต่อกันกี่ปี?
-4. เพลงที่มี BPM ไม่เกิน 100 BPM ที่เป็นที่นิยมในปี 2019?
-5. ในปี 2016 มีเพลงชื่ออะไร ศิลปินชื่ออะไร เป็นเพลงประเภทไหนที่ติดท็อปบ้าง?
-  -->
-
 ### Steps
 
 1. Define the questions
 2. Explore data from original dataset
 3. Data Cleaning and Data Transformation
 4. Exploratory Data Analysis
+5. Data Visualization
+6. Analytical Inferential Statistics
 
 ### Tools
 
 - R Language
 - R Studio Desktop
+- Power BI
 
 ## Table of Contents
 
 - [Exploratory Data Analysis](https://github.com/sit-2021-int214/012-Spotify-Charts/blob/main/01-EDA.md)
-<!--
-1. [Define the questions and Data Exploration]()
-2. [Data Cleaning and Data Transformation]()
-3. [Exploratory Data Analysis]()
--->
+- [Analytical Inferential Statistics](https://github.com/sit-2021-int214/012-Top-Spotify-Songs/blob/main/02-AIS.md)
+
 ## Resources
 
 ### Important Files in Repository
 - [code-eda.R](./code-eda.R): Exploratory Data Analysis
 - [top10s-spotify-original.csv](./top10s-spotify-original.csv): Original Dataset
-- [top10s-spotify-cleaned.csv](https://raw.githubusercontent.com/sit-2021-int214/012-Top-Spotify-Songs/main/top10s-spotify-cleaned.csv)
+- [top10s-spotify-cleaned.csv](https://raw.githubusercontent.com/sit-2021-int214/012-Top-Spotify-Songs/main/top10s-spotify-cleaned.csv): Cleaned Dataset
 
 ### References
 - [Top Spotify songs from 2010-2019 - BY YEAR](https://www.kaggle.com/leonardopena/top-spotify-songs-from-20102019-by-year)
@@ -67,6 +58,8 @@ The Top Spotify Songs from 2010-2019 were stracted from http://organizeyourmusic
 - [ifelse: Conditional Element Selection](https://www.rdocumentation.org/packages/base/versions/3.6.2/topics/ifelse)
 - [Apply a function (or functions) across multiple columns](https://dplyr.tidyverse.org/reference/across.html)
 - [R - count maximum number of consecutive dates](https://stackoverflow.com/a/53713204)
+- [Music 101: What Is Tempo? How Is Tempo Used in Music?](https://www.masterclass.com/articles/music-101-what-is-tempo-how-is-tempo-used-in-music#what-is-tempo)
+- [Effects of Musical Tempo on Musicians’ and Non-musicians’ Emotional Experience When Listening to Music](https://www.frontiersin.org/articles/10.3389/fpsyg.2018.02118/full)
 
 
 
