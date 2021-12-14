@@ -74,4 +74,5 @@ if(z<zalpha){
 ```
 
 ### Step 6: Conclusion
-BPM that attains a value of 120 and more, truly involves and affects Spotify user group popularity.
+Between BPM that attains a value of 120 and more, and Spotify user group popularity didn't have enough evidence or indicator more to certainly summarise whether these two factors were interrelated.
+<!-- BPM that attains a value of 120 and more, truly not involves and affects Spotify user group popularity. -->
