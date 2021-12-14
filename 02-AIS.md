@@ -26,30 +26,30 @@ In this part, we create and display the data on the dashboard by BI Tools named 
 ## Analytical Inferential Statistics
 
 ### Our hypothesis
-Explore a sample of 603 songs that had been the top Spotify songs by the year 2010 - 2019. About a variable of all which show each song's tempo or 'BPM'. And consider verifying whether BPM that attains a value of 120 and more, involves Spotify user group popularity. By finding that the sample BPM mean is 118.7425 and the sample BPM standard deviation is 24.3395.
+Explore a sample of 603 songs that had been the top Spotify songs by the year 2010 - 2019. About a variable of all which show each song's tempo or 'BPM'. And consider verifying whether BPM that attains a value of 120 (which is the median in this data) and more, involves Spotify user group popularity. By finding that the sample BPM mean is 118.7425 and the sample BPM standard deviation is 24.3395.
 
 ### Step 0: Assign variables
 ```r
 n <- 603
 sd <- 24.3395
 xbar <- 118.7425
-U0 <- 120
+u0 <- 120
 ```
 
 ### Step 1: State the hypothesis
 ```r
-#h0: U0 >= 120
-#ha: U0 < 120
+#h0: u0 >= 120
+#ha: u0 < 120
 ```
 
 ### Step 2: Level of significance
 ```r
-alpha <- 0.10
+alpha <- 0.05
 ```
 
 ### Step 3: Test statistic
 ```r
-z <- (xbar - U0) / (sd/sqrt(n))
+z <- (xbar - u0) / (sd/sqrt(n))
 # z = -1.268688
 ```
 
@@ -57,13 +57,13 @@ z <- (xbar - U0) / (sd/sqrt(n))
 ```r
 # Critical Value approach
 zalpha <- qnorm(alpha)
-# zalpha = -1.281552
+# zalpha = -1.644854
 ```
 
 ### Step 5: Compare
 ```r
 # When using critical value
-if(z<zalpha){
+if(z<=zalpha){
   print("Reject H0")
 }else{
   print("Accept H0")
@@ -74,5 +74,6 @@ if(z<zalpha){
 ```
 
 ### Step 6: Conclusion
-Between BPM that attains a value of 120 and more, and Spotify user group popularity didn't have enough evidence or indicator more to certainly summarise whether these two factors were interrelated.
-<!-- BPM that attains a value of 120 and more, truly not involves and affects Spotify user group popularity. -->
+<!-- In Accept H0: -->
+Between BPM that attains a value of 120 and more, and Spotify user group popularity have enough evidence or indicator more to certainly summarise that these two factors were interrelated.
+<!-- In Reject H0: Between BPM that attains a value of 120 and more, and Spotify user group popularity didn't have enough evidence or indicator more to certainly summarise whether these two factors were interrelated. -->
