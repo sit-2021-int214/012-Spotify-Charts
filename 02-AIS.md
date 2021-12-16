@@ -58,7 +58,7 @@ library(tidyverse)
 ```
 
 ## Data Visualization
-In this part, we create and display the data on the dashboard by BI Tools named 'Power BI' then you could access them with click on this link. >>> [Top Spotify songs from 2010-2019 : Data-visualization](https://app.powerbi.com/view?r=eyJrIjoiMGU1ZWM4NTgtYmM1NS00MGNkLWI1MGUtYTA2MmVjMzhhMjNlIiwidCI6IjZmNDQzMmRjLTIwZDItNDQxZC1iMWRiLWFjMzM4MGJhNjMzZCIsImMiOjEwfQ%3D%3D)
+In this part, we create and display the data on the dashboard by BI Tools named 'Power BI' then you could access them with click on this link. >>> [Top Spotify songs from 2010-2019 : Data-visualization](https://app.powerbi.com/view?r=eyJrIjoiYTdiYjVhZjctMDkyYy00YzllLTg5ODctNDE1MTZiNzZhN2NlIiwidCI6IjZmNDQzMmRjLTIwZDItNDQxZC1iMWRiLWFjMzM4MGJhNjMzZCIsImMiOjEwfQ%3D%3D)
 
 ## Analytical Inferential Statistics
 
