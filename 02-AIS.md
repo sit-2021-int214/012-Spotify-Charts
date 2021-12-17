@@ -27,7 +27,7 @@ Original Dataset from: [Top Spotify songs from 2010-2019 - BY YEAR](https://www.
 
 ## Question
 
-Assume Spotify reports that the BPM of the their top songs from 2010-2019 is greater than 120. Suppose a sample of 80 Spotify top songs BPM from 2010-2019 is taken with a mean of 118.74 and a standard deviation of 24.34. Should the report be rejected at the confidence level of 95%?
+Assuming Spotify reports that the BPM of the their top songs from 2010-2019 is greater than 120. Suppose a sample of 80 Spotify top songs' BPMs from 2010-2019 is taken with a mean of 118.74 and a standard deviation of 24.34. Should the report be rejected at the confidence level of 95%?
 
 ### Step 0: Assign variables
 
