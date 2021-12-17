@@ -2,77 +2,32 @@
 
 Original Dataset from: [Top Spotify songs from 2010-2019 - BY YEAR](https://www.kaggle.com/leonardopena/top-spotify-songs-from-20102019-by-year)
 
-## Overview
-
-This section will show the way to access our data visualization from the dataset 'Top Spotify songs from 2010-2019' by using Power BI Dashboard to display it, including explain the steps to do hypothesis testing and its conclusion. By bringing a cleaned dataset from the part of [Exploratory Data Analysis](https://github.com/sit-2021-int214/012-Top-Spotify-Songs/blob/main/01-EDA.md) to study and statistical inference with representing statistical significance after.
+# Analytical Inferential Statistics
 
 ## Steps
 
-1. [Setup dataset and tools](#setup-dataset-and-tools)
-2. [Data Visualization](#data-visualization)
-3. [Analytical Inferential Statistics](#analytical-inferential-statistics)
+0. Assign variables:
+   - u0 or p0
+   - xbar or pbar
+   - n
+   - sd (or sigma)
+   - alpha (default is 0.05)
+1. State the hypothesis
+2. Select Level of significance (alpha)
+3. Select Test statistic (This formula for one population)
+   - z/t <- (xbar - u0) / (sd / sqrt(n))
+   - z <- (pbar - p0) / sqrt((p0 \* (1 - p0)) / n)
+4. Find p-value or critical Value
+   - P-value for Z: `pvalue <- pnorm(z)`
+   - Critical Value for Z: `zalpha <- qnorm(alpha)`
+   - P-value for T: `pvalue <- pt(q, df,lower.tail = TRUE)`
+   - talpha for T: `talpha <- qt(p, df, lower.tail = TRUE)`
+5. Compare p-value with alpha or z/t with zalpha/talpha
+6. Conclusion
 
-## Setup dataset and tools
+## Question
 
-### Import cleaned dataset
-
-```r
-top10s_spotify <- read_csv("https://raw.githubusercontent.com/sit-2021-int214/012-Top-Spotify-Songs/main/top10s-spotify-cleaned.csv")
-```
-
-### Import necessary packages
-
-```r
-install.packages("tidyverse") # When never had installed it before
-library(tidyverse)
-```
-
-**Also, including check its statistics summary before.** (with summary() function)
-
-```
-      ...1          Title              Artist             Genre
- Min.   :  1.0   Length:603         Length:603         Length:603
- 1st Qu.:151.5   Class :character   Class :character   Class :character
- Median :302.0   Mode  :character   Mode  :character   Mode  :character
- Mean   :302.0
- 3rd Qu.:452.5
- Max.   :603.0
-
-      Year           BPM            Energy       Danceability    Loudness dB
- Min.   :2010   Min.   : 43.0   Min.   : 4.00   Min.   :23.00   Min.   :-15.000
- 1st Qu.:2013   1st Qu.:100.0   1st Qu.:61.00   1st Qu.:57.00   1st Qu.: -6.000
- Median :2015   Median :120.0   Median :74.00   Median :66.00   Median : -5.000
- Mean   :2015   Mean   :118.7   Mean   :70.62   Mean   :64.49   Mean   : -5.488
- 3rd Qu.:2017   3rd Qu.:129.0   3rd Qu.:82.00   3rd Qu.:73.00   3rd Qu.: -4.000
- Max.   :2019   Max.   :206.0   Max.   :98.00   Max.   :97.00   Max.   : -2.000
-                NA's   :1       NA's   :1       NA's   :1       NA's   :1
-    Liveness       Valence         Duration      Acousticness    Speechiness
- Min.   : 2.0   Min.   : 4.00   Min.   :134.0   Min.   : 0.00   Min.   : 3.000
- 1st Qu.: 9.0   1st Qu.:35.00   1st Qu.:202.0   1st Qu.: 2.00   1st Qu.: 4.000
- Median :12.0   Median :52.00   Median :221.0   Median : 6.00   Median : 5.000
- Mean   :17.8   Mean   :52.31   Mean   :224.7   Mean   :14.35   Mean   : 8.372
- 3rd Qu.:24.0   3rd Qu.:69.00   3rd Qu.:239.5   3rd Qu.:17.00   3rd Qu.: 9.000
- Max.   :74.0   Max.   :98.00   Max.   :424.0   Max.   :99.00   Max.   :48.000
- NA's   :1      NA's   :1                       NA's   :1       NA's   :1
-   Popularity
- Min.   : 7.00
- 1st Qu.:60.00
- Median :69.00
- Mean   :67.08
- 3rd Qu.:76.00
- Max.   :99.00
- NA's   :5
-```
-
-## Data Visualization
-
-In this part, we create and display the data on the dashboard by BI Tools named 'Power BI' then you could access them with click on this link. >>> [Top Spotify songs from 2010-2019 : Data-visualization](https://app.powerbi.com/view?r=eyJrIjoiYTdiYjVhZjctMDkyYy00YzllLTg5ODctNDE1MTZiNzZhN2NlIiwidCI6IjZmNDQzMmRjLTIwZDItNDQxZC1iMWRiLWFjMzM4MGJhNjMzZCIsImMiOjEwfQ%3D%3D)
-
-## Analytical Inferential Statistics
-
-### Question
-
-Assume Spotify reports that the BPM of the their top songs from 2010-2019 is greater than 120. Suppose a sample of 80 Spotify top songs from 2010-2019 is taken with a mean BPM of 118.74 and a standard deviation of 24.34. Should the report be rejected at the confidence level of 95%?
+Assume Spotify reports that the BPM of the their top songs from 2010-2019 is greater than 120. Suppose a sample of 80 Spotify top songs BPM from 2010-2019 is taken with a mean of 118.74 and a standard deviation of 24.34. Should the report be rejected at the confidence level of 95%?
 
 ### Step 0: Assign variables
 
